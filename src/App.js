@@ -1,19 +1,22 @@
-import React from "react";
-import { BrowserRouter } from "react-router-dom";
-import "./config/reactotron";
-import GlobalStyle from "./styles/global";
-import { Provider } from "react-redux";
-
-import Routes from "./routes";
-import store from "./store";
+import React from 'react';
+import { ConnectedRouter } from 'connected-react-router';
+import history from './routes/history';
+import { BrowserRouter } from 'react-router-dom';
+import './config/reactotron';
+import GlobalStyle from './styles/global';
+import { Provider } from 'react-redux';
+import 'animate.css/animate.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Routes from './routes';
+import store from './store';
 
 function App() {
   return (
     <Provider store={store}>
-      <BrowserRouter>
+      <ConnectedRouter history={history}>
         <GlobalStyle />
         <Routes />
-      </BrowserRouter>
+      </ConnectedRouter>
     </Provider>
   );
 }
