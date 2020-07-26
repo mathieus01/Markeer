@@ -37,7 +37,12 @@ function PatientCard({ avatar, patient, surgeries, handleEditPatient }) {
         
       </PatientButtons> */}
       <PatientInfo className='d-flex flex-row w-100 mt-3'>
-        <PatientAvatar src={avatar} alt='avatar' className='img-fluid rounded-circle' />
+        <PatientAvatar
+          src={avatar}
+          alt='avatar'
+          className='img-fluid rounded-circle'
+          style={{ background: 'var(--box-shadow-color)', padding: '5px' }}
+        />
         <strong className='ml-2 ml-md-3 mt-2'>{patient.name}</strong>
       </PatientInfo>
       <PatientType className='d-flex w-100'>

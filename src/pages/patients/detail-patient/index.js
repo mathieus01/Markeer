@@ -7,7 +7,7 @@ import { Creators as SurgeryActions } from '../../../store/ducks/surgery';
 import Modal from 'react-modal';
 import Swal from 'sweetalert2';
 import { Container, ListSurgeryTitle } from './styles';
-import Profile from '../../../assets/images/profile.jpg';
+import Profile from '../../../assets/images/profile.svg';
 import { FiPlus } from 'react-icons/fi';
 import PatientCard from '../../../components/PatientCard';
 import ListSurgery from '../../../components/ListSurgery';

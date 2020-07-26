@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from '../../assets/images/medical.svg';
-import Profile from '../../assets/images/profile.jpg';
+import Profile from '../../assets/images/profile.svg';
 import { logout } from '../../services/auth';
 import { Container } from './styles';
 import { Link } from 'react-router-dom';
@@ -64,7 +64,12 @@ function Header() {
               aria-haspopup='true'
               aria-expanded='false'
             >
-              <img src={Profile} alt='avatar' className='img-fluid' />
+              <img
+                src={Profile}
+                alt='avatar'
+                className='img-fluid'
+                style={{ background: 'var(--box-shadow-color)', padding: '5px' }}
+              />
               <span className='d-none d-lg-flex'>Matheus Nunes</span>
             </a>
             <div class='dropdown-menu p-2' aria-labelledby='navbarDropdownMenuLink'>
