@@ -12,7 +12,7 @@ function Sidebar() {
     <aside className='sidebar d-none d-lg-block' id='sidebar'>
       <div className='logo d-flex align-items-center'>
         <img src={MedicalLogo} alt='Logo' className='img-fluid' />
-        <span>Medical App</span>
+        <span>Markeer</span>
       </div>
 
       <div className='menu'>
