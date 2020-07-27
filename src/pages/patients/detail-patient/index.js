@@ -28,7 +28,6 @@ const DetailPatient = ({
   const [surgery, setSurgery] = useState(null);
   const [surgeries, setSurgeries] = useState(null);
   const [editSurgery, setEditSurgery] = useState(false);
-  const [value, setValue] = useState(0);
   const [openModalSurgery, setOpenModalSurgery] = useState(false);
   const [openModalPatient, setOpenModalPatient] = useState(false);
 
@@ -55,10 +54,6 @@ const DetailPatient = ({
       handleSelectedSurgery(null);
     }
   }, [surgeryState.surgeries, surgeryState.surgeries.length]);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
 
   const handleSelectedSurgery = (surgery) => {
     setSelected(!!surgery);
@@ -106,7 +101,7 @@ const DetailPatient = ({
     <Container className='container-fluid py-xl-4 px-xl-5 py-lg-3 px-xl-4 px-md-3 py-md-3 p-0'>
       <div className='row h-100'>
         {patient && (
-          <div className='col-md-4'>
+          <div className='col-lg-4 col-md-6'>
             <div className='card mx-2 mx-md-0 mt-2 mt-md-0'>
               <PatientCard
                 patient={patient}
@@ -135,7 +130,11 @@ const DetailPatient = ({
             </div>
           </div>
         )}
-        <div className={`col-md-8 px-0 h-100 d-none d-md-block ${!selected ? 'd-none d-md-flex' : 'd-flex'}`}>
+        <div
+          className={`col-lg-8 col-md-6 col-12 px-0 h-100 d-none d-md-block ${
+            !selected ? 'd-none d-md-flex' : 'd-flex'
+          }`}
+        >
           {surgery && (
             <CSSTransition
               in={true}

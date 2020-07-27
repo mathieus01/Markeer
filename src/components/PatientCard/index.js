@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { Container, Title, PatientButtons, PatientInfo, PatientType, PatientSection, PatientAvatar } from './styles';
+import { Container, Title, PatientInfo, PatientType, PatientSection, PatientAvatar } from './styles';
 import { Link } from 'react-router-dom';
-import { FiEdit, FiMapPin, FiBriefcase, FiPhoneCall, FiArrowLeft } from 'react-icons/fi';
+import { FiEdit, FiLogIn, FiMapPin, FiBriefcase, FiPhoneCall, FiArrowLeft } from 'react-icons/fi';
 
-function PatientCard({ avatar, patient, surgeries, handleEditPatient }) {
+function PatientCard({ avatar, patient, surgeries, handleEditPatient, navigateDetailPage }) {
   return (
     <Container className='d-flex flex-column align-items-center pb-2 '>
       <Title className='pb-3 d-flex w-100 justify-content-between'>
@@ -14,13 +14,24 @@ function PatientCard({ avatar, patient, surgeries, handleEditPatient }) {
           </Link>
           <h6 className='mb-0'>Paciente</h6>
         </div>
-        <button
-          type='button'
-          className='button rounded-circle py-0 px-2 d-flex align-items-center'
-          onClick={(e) => handleEditPatient(true)}
-        >
-          <FiEdit size={16} />
-        </button>
+        {handleEditPatient && (
+          <button
+            type='button'
+            className='button rounded-circle py-0 px-2 d-flex align-items-center'
+            onClick={(e) => handleEditPatient(true)}
+          >
+            <FiEdit size={16} />
+          </button>
+        )}
+        {navigateDetailPage && (
+          <button
+            type='button'
+            className='button rounded-circle py-0 px-2 d-flex align-items-center'
+            onClick={(e) => navigateDetailPage(patient.id)}
+          >
+            <FiLogIn size={16} />
+          </button>
+        )}
       </Title>
 
       {/* <PatientButtons className=' w-100 d-flex justify-content-between align-items-center'>

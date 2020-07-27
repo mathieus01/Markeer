@@ -1,7 +1,6 @@
 import React from 'react';
 import { ConnectedRouter } from 'connected-react-router';
 import history from './routes/history';
-import { BrowserRouter } from 'react-router-dom';
 import './config/reactotron';
 import GlobalStyle from './styles/global';
 import { Provider } from 'react-redux';

@@ -29,8 +29,8 @@ function CreatePatient({
 
   useEffect(() => {
     if (!!patient) {
-      patient = { ...patient, birthday: moment(patient.birthday).format('YYYY-MM-DD') };
-      formRef.current.setData(patient);
+      const newPatient = { ...patient, birthday: moment(patient.birthday).format('YYYY-MM-DD') };
+      formRef.current.setData(newPatient);
     } else {
       formRef.current.setData({});
     }

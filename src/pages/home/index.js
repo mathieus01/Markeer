@@ -202,8 +202,7 @@ class Home extends Component {
                   ]}
                   options={{
                     animation: { duration: 1500, startup: true, easing: 'inAndOut' },
-                    chartArea: { top: 0 },
-                    chartArea: { width: '100%', height: '80%' },
+                    chartArea: { width: '100%', height: '80%', top: 0 },
                     legend: { position: 'none' },
                     colors: ['#FE8B56'],
                     hAxis: { gridlines: { count: 0 }, baselineColor: 'none', ticks: [] },
@@ -281,8 +280,7 @@ class Home extends Component {
                   ]}
                   options={{
                     animation: { duration: 1500, startup: true, easing: 'inAndOut' },
-                    chartArea: { top: 0 },
-                    chartArea: { width: '100%', height: '80%' },
+                    chartArea: { width: '100%', height: '80%', top: 0 },
                     legend: { position: 'none' },
                     colors: ['#66C2F5'],
                     curveType: 'function',

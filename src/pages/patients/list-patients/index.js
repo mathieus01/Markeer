@@ -12,7 +12,6 @@ import { FiPlus } from 'react-icons/fi';
 import { Container, ListPatientTitle } from './styles';
 
 const ListPatients = ({ patientState, getPatientsRequest, removePatientRequest, history, ...rest }) => {
-  const [addPatient, setAddPatient] = useState(false);
   const [page, setPage] = useState(1);
   const [patients, setPatients] = useState([]);
   const [selectedPatient, setSelectedPatient] = useState();
@@ -31,17 +30,6 @@ const ListPatients = ({ patientState, getPatientsRequest, removePatientRequest, 
 
   const removePatient = (id) => {
     removePatientRequest(id);
-  };
-
-  const handleAddPatient = (value) => {
-    setAddPatient(value);
-  };
-
-  const getPatients = () => {
-    if (patientState.page < patientState.lastPage) {
-      setPage(page + 1);
-      getPatientsRequest(page + 1);
-    }
   };
 
   const navigateDetailPage = (id) => {
@@ -73,7 +61,6 @@ const ListPatients = ({ patientState, getPatientsRequest, removePatientRequest, 
     }).then((result) => {
       if (result.value) {
         removePatient(id);
-        // alert(id);
       }
     });
   };
@@ -81,7 +68,7 @@ const ListPatients = ({ patientState, getPatientsRequest, removePatientRequest, 
   return (
     <Container className='container-fluid h-100 py-xl-4 px-xl-5 py-lg-3 px-xl-4 px-md-3 py-md-3 p-0'>
       <div className='row h-100'>
-        <div className='col-md-4'>
+        <div className='col-xl-4 col-lg-5 col-md-6'>
           <div className='card h-100 mx-2 mx-md-0 mt-2 mt-md-0'>
             <ListPatientTitle className='pb-3 mb-2 d-flex w-100 justify-content-between'>
               <h6 className='mb-0'>Pacientes</h6>
@@ -97,7 +84,7 @@ const ListPatients = ({ patientState, getPatientsRequest, removePatientRequest, 
             <ListComponent patients={patients} selectPatient={selectPatient} />
           </div>
         </div>
-        <div className='col-lg-8 col-md-7 pl-xl-4 pl-md-2 d-none d-md-block'>
+        <div className='col-xl-8 col-lg-7 col-md-6 pl-xl-4 pl-md-2 d-none d-md-block'>
           {selectedPatient && (
             <DetailPatient
               selectedPatient={selectedPatient}

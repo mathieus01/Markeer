@@ -18,7 +18,13 @@ function ListSurgery({ surgeries, handleSelectedSurgery, selected }) {
               unmountOnExit={true}
               appear={true}
             >
-              <SurgeryItem className='d-flex mb-0' onClick={(e) => handleSelectedSurgery(surgery)}>
+              <SurgeryItem
+                key={surgery.id}
+                className='d-flex mb-0'
+                onClick={(e) => {
+                  if (handleSelectedSurgery) handleSelectedSurgery(surgery);
+                }}
+              >
                 <div className='d-flex w-100 px-xl-0 py-2'>
                   <div className='col-2 px-0 d-flex justify-content-center align-items-center'>
                     <div className='icon blue d-flex align-items-center p-3'>

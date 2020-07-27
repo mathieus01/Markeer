@@ -1,14 +1,41 @@
-import React from 'react';
-import moment from 'moment';
-import { FiTrash, FiEdit, FiMapPin, FiBriefcase, FiPhoneCall } from 'react-icons/fi';
+import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Creators as SurgeryActions } from '../../store/ducks/surgery';
 import Patient1 from '../../assets/images/patient1.jpg';
-import ListSurgeryInline from '../ListSurgeryInline';
-import { Container, Avatar, PatientInfo } from './styles';
+import PatientCard from '../PatientCard';
+import ListSurgery from '../ListSurgery';
+import { Container } from './styles';
 
-function DetailPatient({ selectedPatient, confirmDelete, navigateDetailPage }) {
+function DetailPatient({ surgeryState, selectedPatient, confirmDelete, navigateDetailPage, getSurgeriesRequest }) {
+  const [surgeries, setSurgeries] = useState([]);
+
+  useEffect(() => {
+    if (selectedPatient && selectedPatient.id) {
+      getSurgeriesRequest({ patient: selectedPatient.id });
+    }
+  }, [selectedPatient, getSurgeriesRequest]);
+
+  useEffect(() => {
+    setSurgeries(surgeryState.surgeries);
+  }, [surgeryState.surgeries]);
+
   return (
     <Container className='card h-100 d-flex flex-column'>
-      <div className='d-flex d-flex'>
+      <PatientCard
+        patient={selectedPatient}
+        avatar={Patient1}
+        surgeries={surgeries}
+        navigateDetailPage={navigateDetailPage}
+      />
+
+      <div className='d-flex mt-xl-5 mt-lg-3'>
+        <div className='col-xl-6 col-md-12 px-0'>
+          <ListSurgery surgeries={surgeries} />
+        </div>
+      </div>
+
+      {/* <div className='d-flex d-flex'>
         <div className='col-xl-1 col-2 px-0 d-flex align-items-center ml-xl-2 justify-content-center'>
           <Avatar src={Patient1} alt='avatar' className='img-fluid rounded-circle' />
         </div>
@@ -53,9 +80,15 @@ function DetailPatient({ selectedPatient, confirmDelete, navigateDetailPage }) {
         <div className='col-lg-10'>
           <ListSurgeryInline />
         </div>
-      </div>
+      </div> */}
     </Container>
   );
 }
 
-export default DetailPatient;
+const mapStateToProps = (state) => ({
+  surgeryState: state.surgery,
+});
+
+const mapDispatchToProps = (dispatch) => bindActionCreators({ ...SurgeryActions }, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(DetailPatient);

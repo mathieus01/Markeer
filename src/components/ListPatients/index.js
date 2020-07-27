@@ -8,7 +8,7 @@ function ListPatients({ patients, selectPatient }) {
     <List>
       {patients &&
         patients.map((patient) => (
-          <Item className='d-flex mb-0' onClick={(e) => selectPatient(patient)}>
+          <Item key={patient.id} className='d-flex mb-0' onClick={(e) => selectPatient(patient)}>
             <div className='d-flex w-100 px-xl-0 py-2'>
               <div className='col-2 px-0 d-flex justify-content-center align-items-center'>
                 <Avatar src={Patient1} alt='patient-avatar' className='img-fluid rounded-circle' />
