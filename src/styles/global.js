@@ -45,6 +45,10 @@ body{
   font-family: 'Roboto', sans-serif;
 }
 
+svg{
+  stroke-width: 2.6px;
+}
+
 ul::-webkit-scrollbar {
   width: 0.25rem;
 }
@@ -211,6 +215,11 @@ a:hover{
   transform: scale(0);
   transition: opacity 750ms, transform 750ms;
 }
+
+.text-primary{
+  color: var(--primary-color) !important;
+}
+
 `;
 
 export default GlobalStyle;

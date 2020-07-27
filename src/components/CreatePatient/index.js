@@ -107,12 +107,12 @@ function CreatePatient({
             <InputComponent type='text' name='alergy' />
           </div>
         </Body>
-        <ButtonGroup className='form-group d-flex justify-content-between pt-3 m-0'>
+        <ButtonGroup className='form-group d-flex justify-content-between pt-2 pt-md-3 m-0'>
           <button type='submit' class='btn btn-sm primary-button rounded-pill px-3'>
-            Submit
+            Criar
           </button>
           <button type='button' class='btn btn-sm btn-danger' onClick={(e) => closeModal(false)}>
-            Cancel
+            Cancelar
           </button>
         </ButtonGroup>
       </Form>

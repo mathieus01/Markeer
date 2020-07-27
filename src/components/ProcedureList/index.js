@@ -5,7 +5,7 @@ import { ProceduresList } from './styles';
 
 function ProcedureList({ procedures, isEdit, removeProcedure }) {
   return (
-    <ProceduresList className='my-0 list-group list-group-flush'>
+    <ProceduresList className='my-0 '>
       <TransitionGroup className='todo-list w-100'>
         {procedures &&
           procedures.map((procedure) => (
@@ -17,7 +17,7 @@ function ProcedureList({ procedures, isEdit, removeProcedure }) {
               unmountOnExit={true}
               appear={true}
             >
-              <li className={`d-flex list-group-item px-0 ${!isEdit ? 'my-2' : ''}`}>
+              <li className={`d-flex px-0 ${!isEdit ? 'my-2' : ''}`}>
                 <small className='d-flex align-items-center mr-2'>{procedure.code}</small>
                 <strong className='d-flex align-items-center w-100'>{procedure.name}</strong>
                 {isEdit && (

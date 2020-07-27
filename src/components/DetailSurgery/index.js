@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import ProceduresList from '../ProcedureList';
 import { Container, Title, SurgeryHeader, SurgeryInfo, SurgeryProcedure, SurgeryPhotos } from './styles';
-import { FiEdit, FiMapPin, FiX, FiAlertTriangle, FiCalendar, FiFileText, FiArrowLeft } from 'react-icons/fi';
+import { FiEdit, FiMapPin, FiTrash2, FiAlertTriangle, FiCalendar, FiFileText, FiArrowLeft } from 'react-icons/fi';
 
 function DetailSurgery({ surgery, selected, confirmDelete, handleEditSurgery, handleSelectedSurgery }) {
   return (
@@ -25,17 +25,17 @@ function DetailSurgery({ surgery, selected, confirmDelete, handleEditSurgery, ha
           <div className='surgery-buttons d-flex'>
             <button
               type='button'
-              className='button rounded-circle py-0 px-1 d-flex align-items-center'
+              className='button rounded-circle py-0 px-1 d-flex align-items-center text-primary'
               onClick={(e) => handleEditSurgery(surgery)}
             >
               <FiEdit size={16} />
             </button>
             <button
               type='button'
-              className='button rounded-circle py-0 px-1  d-flex align-items-center'
+              className='button rounded-circle py-0 px-1 d-flex align-items-center text-danger'
               onClick={(e) => confirmDelete(surgery.id)}
             >
-              <FiX size={16} />
+              <FiTrash2 size={16} />
             </button>
           </div>
         </SurgeryHeader>

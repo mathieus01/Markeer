@@ -7,6 +7,7 @@ import Modal from 'react-modal';
 import ListComponent from '../../../components/ListPatients';
 import DetailPatient from '../../../components/DetailPatient';
 import CreatePatient from '../../../components/CreatePatient';
+import Loading from '../../../components/Loading';
 import Swal from 'sweetalert2';
 import { FiPlus } from 'react-icons/fi';
 import { Container, ListPatientTitle } from './styles';
@@ -75,12 +76,13 @@ const ListPatients = ({ patientState, getPatientsRequest, removePatientRequest, 
 
               <button
                 type='button'
-                className='button rounded-circle py-0 px-2 d-flex align-items-center'
+                className='button rounded-circle py-0 px-2 d-flex align-items-center text-primary'
                 onClick={(e) => handleOpenModalPatient(true)}
               >
                 <FiPlus size={16} />
               </button>
             </ListPatientTitle>
+            {patientState.loading && <Loading />}
             <ListComponent patients={patients} selectPatient={selectPatient} />
           </div>
         </div>

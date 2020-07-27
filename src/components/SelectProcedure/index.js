@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Creators as ProceduresActions } from '../../store/ducks/procedure';
-import { Container, List, Item } from './styles';
+import { Container, ProcedureInput, List, Item } from './styles';
 
 function SelectProcedure({ getProceduresRequest, procedureState, procedures, setProcedures, cleanProcedures }) {
   const [proceduresOption, setProceduresOption] = useState([]);
@@ -35,24 +35,23 @@ function SelectProcedure({ getProceduresRequest, procedureState, procedures, set
   return (
     <Container className='d-flex flex-column'>
       <label for='exampleInputPassword1'>Procedimentos</label>
-      <input
+      <ProcedureInput
         type='text'
         className='form-control'
         onChange={(e) => handleGetProcedure(e.target.value)}
         placeholder='Pesquisar...'
       />
-      <List className='mb-0 list-group w-100'>
+      <List className='mb-0 w-100'>
         {proceduresOption &&
           proceduresOption.length > 0 &&
           proceduresOption.map((option) => (
             <Item
               key={option.id}
               onClick={(e) => handleAddProcedure(option)}
-              className={`px-3 py-2 list-group-item list-group-item-action ${
-                procedures.includes(option) ? 'active' : ''
-              }`}
+              className={`mx-2 px-1  py-2  ${procedures.includes(option) ? 'active' : ''}`}
             >
               <span>{option.name}</span>
+              <span className=''>{option.code}</span>
             </Item>
           ))}
       </List>

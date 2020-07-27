@@ -4,8 +4,8 @@ export const Container = styled.div`
   width: 550px;
 
   @media (max-width: 425px) {
-    width: 90vw;
-    height: 73vh;
+    width: 100vw;
+    height: 90vh;
   }
 `;
 
@@ -33,17 +33,17 @@ export const Body = styled.div`
   }
 
   &::-webkit-scrollbar-thumb {
-    background: var(--secondary-color);
+    background: transparent;
   }
 
   @media (max-width: 425px) {
-    max-height: 54vh;
+    max-height: 73vh;
   }
 `;
 
 export const ButtonGroup = styled.div`
-  height: 12%;
-  min-height: 51px;
+  height: 8%;
+  min-height: 40px;
   border-top: var(--border-bottom);
   border-top: 1px solid #eff2f7;
 `;

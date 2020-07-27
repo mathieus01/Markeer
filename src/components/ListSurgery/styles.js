@@ -7,7 +7,7 @@ export const SurgeriesList = styled.ul`
   overflow-x: hidden;
 
   @media (max-width: 425px) {
-    max-height: 40vh;
+    max-height: 50vh;
   }
 
   .item-enter {

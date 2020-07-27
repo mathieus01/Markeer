@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
 import { Container, ListSurgeryTitle } from './styles';
 import Profile from '../../../assets/images/profile.svg';
 import { FiPlus } from 'react-icons/fi';
+import Loading from '../../../components/Loading';
 import PatientCard from '../../../components/PatientCard';
 import ListSurgery from '../../../components/ListSurgery';
 import DetailSurgery from '../../../components/DetailSurgery';
@@ -111,7 +112,7 @@ const DetailPatient = ({
               />
             </div>
             <div
-              className={`card mt-3 mx-2 mx-md-0 ${selected ? 'd-none d-md-flex' : 'd-flex'}`}
+              className={`card mt-2 mt-md-3 mx-2 mx-md-0 ${selected ? 'd-none d-md-flex' : 'd-flex'}`}
               style={{ height: '70%' }}
             >
               <ListSurgeryTitle className='pb-3'>
@@ -126,6 +127,7 @@ const DetailPatient = ({
                   <FiPlus size={18} color='#FFF' />
                 </button>
               </section>
+              {surgeryState.loading && <Loading />}
               <ListSurgery surgeries={surgeries} handleSelectedSurgery={handleSelectedSurgery} selected={selected} />
             </div>
           </div>

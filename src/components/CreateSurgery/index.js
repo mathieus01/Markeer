@@ -92,13 +92,13 @@ function CreateSurgery({ surgery, patient, closeModal, saveSurgeryRequest, updat
             />
           </div>
           <div className='form-group'>
-            <SelectProcedure procedures={procedures} setProcedures={setProcedures} />
-          </div>
-          <div className='form-group'>
             <ProcedureList procedures={procedures} isEdit removeProcedure={removeProcedures} />
           </div>
+          <div className='form-group'>
+            <SelectProcedure procedures={procedures} setProcedures={setProcedures} />
+          </div>
         </Body>
-        <ButtonGroup className='form-group d-flex justify-content-between pt-3 m-0'>
+        <ButtonGroup className='form-group d-flex justify-content-between pt-2 pt-md-3 m-0'>
           <button type='submit' class='btn btn-sm primary-button rounded-pill px-3'>
             Salvar
           </button>

@@ -32,10 +32,10 @@ function Header() {
     <div className='header_area'>
       <nav className='navbar navbar-expand-lg navbar-light px-3 d-flex justify-content-between'>
         <div className='d-flex align-items-center'>
-          <button className='button pt-3 px-3 d-xl-none side-menu' onClick={(e) => toogleSidebar(e)}>
+          <button className='button pt-3 px-3 d-xl-none side-menu text-primary' onClick={(e) => toogleSidebar(e)}>
             <FiMenu size='22' />
           </button>
-          <FaSearch size={18} color='#3c4858' className='d-none d-lg-flex' />
+          <FaSearch size={16} color='#3c4858' className='d-none d-lg-flex' />
           <input
             type='text'
             name='search'

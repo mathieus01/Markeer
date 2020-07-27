@@ -9,7 +9,10 @@ function PatientCard({ avatar, patient, surgeries, handleEditPatient, navigateDe
     <Container className='d-flex flex-column align-items-center pb-2 '>
       <Title className='pb-3 d-flex w-100 justify-content-between'>
         <div className='d-flex align-items-center'>
-          <Link to='/patients' className='button rounded-circle py-0 px-2 d-flex d-md-none align-items-center'>
+          <Link
+            to='/patients'
+            className='button rounded-circle py-0 px-2 d-flex d-md-none align-items-center text-primary'
+          >
             <FiArrowLeft size={16} />
           </Link>
           <h6 className='mb-0'>Paciente</h6>
@@ -17,7 +20,7 @@ function PatientCard({ avatar, patient, surgeries, handleEditPatient, navigateDe
         {handleEditPatient && (
           <button
             type='button'
-            className='button rounded-circle py-0 px-2 d-flex align-items-center'
+            className='button rounded-circle py-0 px-2 d-flex align-items-center text-primary'
             onClick={(e) => handleEditPatient(true)}
           >
             <FiEdit size={16} />
@@ -26,7 +29,7 @@ function PatientCard({ avatar, patient, surgeries, handleEditPatient, navigateDe
         {navigateDetailPage && (
           <button
             type='button'
-            className='button rounded-circle py-0 px-2 d-flex align-items-center'
+            className='button rounded-circle py-0 px-2 d-flex align-items-center text-primary'
             onClick={(e) => navigateDetailPage(patient.id)}
           >
             <FiLogIn size={16} />
@@ -54,29 +57,30 @@ function PatientCard({ avatar, patient, surgeries, handleEditPatient, navigateDe
           className='img-fluid rounded-circle'
           style={{ background: 'var(--box-shadow-color)', padding: '5px' }}
         />
-        <strong className='ml-2 ml-md-3 mt-2'>{patient.name}</strong>
+
+        <PatientType className='d-flex w-100'>
+          <div className='col-6 d-flex flex-column align-items-center py-2'>
+            <strong>{surgeries && surgeries.length}</strong>
+            <span>Cirurgias</span>
+          </div>
+          <div className='col-6 d-flex flex-column align-items-center py-2'>
+            <strong>0</strong>
+            <span>Consultas</span>
+          </div>
+        </PatientType>
       </PatientInfo>
-      <PatientType className='d-flex w-100'>
-        <div className='col-6 d-flex flex-column align-items-center py-2'>
-          <strong>{surgeries && surgeries.length}</strong>
-          <span>Cirurgias</span>
-        </div>
-        <div className='col-6 d-flex flex-column align-items-center py-2'>
-          <strong>0</strong>
-          <span>Consultas</span>
-        </div>
-      </PatientType>
-      <PatientSection className='d-flex pt-2 pb-1 w-100'>
-        <div className='col-4 d-flex align-items-center justify-content-center px-0'>
-          <FiBriefcase size={16} className='mr-1' />
+      <PatientSection className='d-flex flex-column w-100'>
+        <strong className=' mt-2'>{patient.name}</strong>
+        <div className='d-flex align-items-center px-0'>
+          <FiBriefcase size={16} className='mr-2' />
           <span>{patient.occupation ? patient.occupation : 'Não informado'}</span>
         </div>
-        <div className='col-4 d-flex align-items-center justify-content-center px-0'>
-          <FiPhoneCall size={16} className='mr-1' />
+        <div className='d-flex align-items-center px-0'>
+          <FiPhoneCall size={16} className='mr-2' />
           <span>{patient.phone ? patient.phone : 'Não informado'}</span>
         </div>
-        <div className='col-4 d-flex align-items-center justify-content-center px-0'>
-          <FiMapPin size={16} className='mr-1' />
+        <div className='d-flex align-items-center px-0'>
+          <FiMapPin size={16} className='mr-2' />
           <span>{patient.address ? patient.address : 'Não informado'}</span>
         </div>
       </PatientSection>
