@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Profile from '../../assets/images/profile.svg';
-import { logout } from '../../services/auth';
+import { logout, getToken } from '../../services/auth';
+import jwtDecode from 'jwt-decode';
 import { Link } from 'react-router-dom';
 import { FaBell, FaSearch } from 'react-icons/fa';
 import { FiMenu, FiLogOut, FiSettings } from 'react-icons/fi';
 import './style.css';
 
 function Header() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const token = getToken();
+    if (token !== null && token !== 'undefined') {
+      const { data } = jwtDecode(token);
+      setUser(data);
+    }
+  }, []);
+
   const toogleSidebar = (e) => {
     var nav = document.querySelector('#sidebar');
     nav.classList.toggle('d-flex');
@@ -68,7 +79,7 @@ function Header() {
                 className='img-fluid'
                 style={{ background: 'var(--box-shadow-color)', padding: '5px' }}
               />
-              <span className='d-none d-lg-flex'>Matheus Nunes</span>
+              <span className='d-none d-lg-flex'>{user && user.username}</span>
             </a>
             <div className='dropdown-menu p-2' aria-labelledby='navbarDropdownMenuLink'>
               <a className='dropdown-item' href='#'>
