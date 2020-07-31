@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 
+export const Container = styled.div`
+  padding: 2.5rem;
+  max-height: 90vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+`;
+
 export const Input = styled.input`
   display: block;
   width: 100%;
@@ -26,8 +33,4 @@ export const Input = styled.input`
     -webkit-box-shadow: inset 0 1px 1px rgba(31, 45, 61, 0.075), 0 0 20px rgba(5, 170, 255, 0.1);
     box-shadow: inset 0 1px 1px rgba(31, 45, 61, 0.075), 0 0 20px rgba(5, 170, 255, 0.1);
   }
-`;
-
-export const Error = styled.span`
-  font-size: 13px;
 `;

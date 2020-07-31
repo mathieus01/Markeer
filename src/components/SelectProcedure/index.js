@@ -22,7 +22,7 @@ function SelectProcedure({ getProceduresRequest, procedureState, procedures, set
   }
 
   function handleGetProcedure(name) {
-    if (name && name.length >= 5) {
+    if (name && name.length >= 3) {
       getProceduresRequest(name);
     }
 

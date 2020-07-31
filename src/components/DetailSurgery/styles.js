@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  max-height: 88vh;
   min-height: 500px;
 
   &::-webkit-scrollbar {
@@ -28,7 +27,7 @@ export const SurgeryHeader = styled.div`
 
   span {
     font: normal 600 14px/16px var(--roboto);
-    color: var(--text-color2);
+    color: var(--text-color);
   }
   strong {
     font: normal 600 14px/20px var(--roboto);
@@ -75,7 +74,7 @@ export const ProceduresList = styled.ul`
   }
   small {
     font: normal 400 13px/13px var(--roboto);
-    color: var(--text-color2);
+    color: var(--text-color);
   }
 
   li:last-child {

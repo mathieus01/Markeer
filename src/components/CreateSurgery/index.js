@@ -9,6 +9,7 @@ import InputComponent from '../InputComponent';
 import SelectProcedure from '../SelectProcedure';
 import ProcedureList from '../ProcedureList';
 import Select from '../Select';
+import * as Yup from 'yup';
 import { Container, Title, Body, ButtonGroup } from './styles';
 
 function CreateSurgery({ surgery, patient, closeModal, saveSurgeryRequest, updateSurgeryRequest }) {
@@ -44,7 +45,36 @@ function CreateSurgery({ surgery, patient, closeModal, saveSurgeryRequest, updat
     setProcedures(newArray);
   }
 
+  async function handleValidationSubmit(data) {
+    let validacao = true;
+    try {
+      formRef.current.setErrors({});
+      const schema = Yup.object().shape({
+        type: Yup.string().required('Selecione o tipo da cirurgia'),
+        cause: Yup.string().required('Informe a causa da cirurgia'),
+        date: Yup.date('Informe um valor de data valido').required('Informe a data da cirurgia'),
+      });
+      await schema.validate(data, {
+        abortEarly: false,
+      });
+    } catch (err) {
+      const validationErrors = {};
+      if (err instanceof Yup.ValidationError) {
+        err.inner.forEach((error) => {
+          validationErrors[error.path] = error.message;
+        });
+        formRef.current.setErrors(validationErrors);
+        validacao = false;
+      }
+    }
+    return validacao;
+  }
+
   async function handleSubmit(data) {
+    if (handleValidationSubmit(data)) {
+      return;
+    }
+
     const newSurgery = {
       ...data,
       date: Util.stringToDateAmerican(data.date),
@@ -72,7 +102,7 @@ function CreateSurgery({ surgery, patient, closeModal, saveSurgeryRequest, updat
       <Form ref={formRef} onSubmit={handleSubmit} className='h-100'>
         <Body className='mt-2'>
           <div class='form-group'>
-            <label for='exampleInputEmail1'>Tipo de Cirurgia</label>
+            <label for='exampleInputEmail1'>Carater da Cirurgia</label>
             <Select options={surgeriesTypes} name='type' />
           </div>
           <div class='form-group'>

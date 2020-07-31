@@ -20,7 +20,7 @@ export const Item = styled.li`
 
     &:last-child {
       font: normal 400 13px/13px var(--roboto);
-      color: var(--title-color2);
+      color: var(--text-color);
     }
   }
 `;

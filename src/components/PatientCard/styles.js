@@ -36,6 +36,6 @@ export const PatientType = styled.div`
 export const PatientSection = styled.div`
   span {
     font: normal 500 13px/20px var(--roboto);
-    color: var(--text-color2);
+    color: var(--text-color);
   }
 `;

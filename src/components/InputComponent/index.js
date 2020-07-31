@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import { useField } from '@unform/core';
 
-import { Input } from './styles';
+import { Input, Error } from './styles';
 
 export default function InputComponent({ name, type, pattern, ...rest }) {
   const inputRef = useRef(null);
-  const { fieldName, registerField } = useField(name);
+  const { fieldName, registerField, error } = useField(name);
   useEffect(() => {
     registerField({
       name: fieldName,
@@ -14,5 +14,10 @@ export default function InputComponent({ name, type, pattern, ...rest }) {
     });
   }, [fieldName, registerField]);
 
-  return <Input type={type} ref={inputRef} {...rest} className='form-control' pattern={pattern} />;
+  return (
+    <>
+      <Input type={type} ref={inputRef} {...rest} className='form-control' pattern={pattern} />
+      {error && <Error className='error text-danger'>{error}</Error>}
+    </>
+  );
 }

@@ -43,17 +43,17 @@ export const SurgeryItem = styled.li`
     font-weight: 600;
   }
   small {
-    color: var(--title-color2);
+    color: var(--text-color);
     font-size: 14px;
     font-weight: 400;
   }
   p {
-    color: var(--title-color2);
+    color: var(--text-color);
     font-size: 14px;
     font-weight: 400;
   }
   span {
-    color: var(--title-color2);
+    color: var(--text-color);
     font-size: 14px;
     font-weight: 400;
   }

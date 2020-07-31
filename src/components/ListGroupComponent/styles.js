@@ -36,6 +36,6 @@ export const Section = styled.div`
   }
   span {
     font: normal 400 14px/18px var(--roboto);
-    color: var(--text-color2);
+    color: var(--text-color);
   }
 `;

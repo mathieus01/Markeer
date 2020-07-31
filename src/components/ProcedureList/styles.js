@@ -10,7 +10,7 @@ export const ProceduresList = styled.ul`
   }
   small {
     font: normal 400 13px/13px var(--roboto);
-    color: var(--text-color2) !important;
+    color: var(--text-color) !important;
   }
 
   .item-enter {

@@ -8,7 +8,7 @@ function ListSurgery({ surgeries, handleSelectedSurgery, selected }) {
   return (
     <SurgeriesList className={`${selected ? 'd-none d-md-flex' : 'd-flex'}`}>
       <TransitionGroup className='todo-list w-100'>
-        {surgeries &&
+        {surgeries && surgeries.length > 0 ? (
           surgeries.map((surgery) => (
             <CSSTransition
               key={surgery.id}
@@ -42,7 +42,12 @@ function ListSurgery({ surgeries, handleSelectedSurgery, selected }) {
                 </div>
               </SurgeryItem>
             </CSSTransition>
-          ))}
+          ))
+        ) : (
+          <li className='d-flex justify-content-center'>
+            <h4 className='text-black-50'>Nenhuma cirurgia encontrada!</h4>
+          </li>
+        )}
       </TransitionGroup>
     </SurgeriesList>
   );

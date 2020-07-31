@@ -1,4 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
+import 'bootstrap/dist/css/bootstrap.css';
+import '@fortawesome/fontawesome-free/css/all.css';
+
 const GlobalStyle = createGlobalStyle`
 *{
   margin: 0;
@@ -19,34 +22,39 @@ strong,p{
 }
 
 :root {
-  --primary-color: #068BF5;
-  --background-color: #F9FBFD;
+  --primary-color: #feb74e;
+  --background-color: transparent;
   --secondary-color: #efefef;
   --title-color: #3c4858;
-  --title-color2: #8492a6;
-  --text-color: #3c4858;
-  --text-color2: #8492a6;
+  --text-color: #8492a6;
+  --svg-color:#0662E2;
+  --text-color-white: #FFF;
   --border-color: #201f1f17;
   --box-shadow-color: #eff0f4;
   --gradient-color: linear-gradient(180deg, #0FAFFf 0%, #1ab2ff 100%);
   --shadow-color: 0px 10px 30px #33bbff;
-  --box-shadow: 0px 4px 8px #eff0f4;
-  --box-shadow2: 0 0.75rem 1.5rem rgba(18,38,63,.03);
+  --box-shadow: 0px 4px 8px rgba(18,38,63,0.05);
+  --box-shadow2: 0 -0.5rem 1.5rem rgba(18,38,63,0.035);
   --border-bottom: 1px solid var(--secondary-color) !important;
+  --fc-border-color: #eff2f7;
   
 
   /* font family variable */
-  --roboto: 'Roboto';
+  --roboto: 'Nunito';
 }
 
 body{
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 
+h6 {
+    font-weight: 600;
+  }
+
 svg{
-  stroke-width: 2.6px;
+  stroke-width: 2px;
 }
 
 ul::-webkit-scrollbar {
@@ -118,9 +126,8 @@ a:hover{
 }
 
 .card {
-    border: 1px solid #F5F7FA;
+    border: 1px solid #eff2f7 !important;
     border-radius: .375rem;
-    border: 1px solid #eff2f7;
     box-shadow: var(--box-shadow2);
     padding: 1rem 1.5rem;
 
@@ -218,6 +225,53 @@ a:hover{
 
 .text-primary{
   color: var(--primary-color) !important;
+}
+
+.fc-col-header-cell{
+  border: 0px !important;
+  color: var(--text-color) !important;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: .75rem 1rem !important;
+}
+.fc-col-header-cell-cushion {
+  padding: 0px !important;
+}
+
+.table-bordered td, .table-bordered th{
+  border: 1px solid #F6F8FA !important;
+}
+
+.fc-daygrid-day-number{
+    font-size: .875rem !important;
+    font-weight: 600 !important;
+    color: #a2acbb !important;
+    float: right !important;
+    width: 100%;
+    padding:.5rem 1rem !important;
+}
+
+.fc .fc-scrollgrid-liquid {
+  border: none !important;
+}
+
+.fc .fc-daygrid-day.fc-day-today{
+  background-color: rgba(6, 139, 245, 0.15);
+}
+
+.fc-toolbar-title{
+  color: var(--title-color) !important;
+  font-size: 24px !important;
+  font-weight: 400!important;
+}
+
+.fc-scrollgrid-sync-inner{
+  text-align: left;
+}
+
+.fc .fc-highlight{
+  background: rgba(51, 214, 159,0.3);
 }
 
 `;

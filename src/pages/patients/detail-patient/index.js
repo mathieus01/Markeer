@@ -99,8 +99,15 @@ const DetailPatient = ({
   };
 
   return (
-    <Container className='container-fluid py-xl-4 px-xl-5 py-lg-3 px-xl-4 px-md-3 py-md-3 p-0'>
-      <div className='row h-100'>
+    <Container className='container-fluid pb-xl-0 pt-xl-4 px-xl-5 py-lg-3 px-xl-4 px-md-3 py-md-3 p-0'>
+      <div class='page-title mt-2'>
+        <div class='row justify-content-between align-items-center'>
+          <div class='col-md-6 col-12 mb-1 mb-md-0 px-4 px-md-3'>
+            <h5 class='h3 font-weight-400 mb-0 text-white'>Detalhar Paciente</h5>
+          </div>
+        </div>
+      </div>
+      <div className='row h-100 pt-2 pt-md-3'>
         {patient && (
           <div className='col-lg-4 col-md-6'>
             <div className='card mx-2 mx-md-0 mt-2 mt-md-0'>

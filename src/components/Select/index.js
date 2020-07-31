@@ -1,12 +1,11 @@
 import React, { useRef, useEffect } from 'react';
 import { useField } from '@unform/core';
-import { SelectCustomize } from './styles';
+import { SelectCustomize, Error } from './styles';
 
 function Select({ name, options, ...rest }) {
   const selectRef = useRef(null);
-  const { fieldName, registerField } = useField(name);
+  const { fieldName, registerField, error } = useField(name);
   useEffect(() => {
-    console.log('teste', selectRef.current);
     registerField({
       name: fieldName,
       ref: selectRef.current,
@@ -15,11 +14,17 @@ function Select({ name, options, ...rest }) {
   }, [fieldName, registerField]);
 
   return (
-    <SelectCustomize {...rest} name={name} ref={selectRef}>
-      {options.map((option) => (
-        <option value={option.value}>{option.label}</option>
-      ))}
-    </SelectCustomize>
+    <>
+      <SelectCustomize {...rest} name={name} ref={selectRef}>
+        <option value='' selected disabled>
+          Selecione
+        </option>
+        {options.map((option) => (
+          <option value={option.value}>{option.label}</option>
+        ))}
+      </SelectCustomize>
+      {error && <Error className='error text-danger'>{error}</Error>}
+    </>
   );
 }
 

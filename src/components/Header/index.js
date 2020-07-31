@@ -3,8 +3,7 @@ import Profile from '../../assets/images/profile.svg';
 import { logout, getToken } from '../../services/auth';
 import jwtDecode from 'jwt-decode';
 import { Link } from 'react-router-dom';
-import { FaBell, FaSearch } from 'react-icons/fa';
-import { FiMenu, FiLogOut, FiSettings } from 'react-icons/fi';
+import { FiMenu, FiLogOut, FiBell, FiSearch, FiSettings } from 'react-icons/fi';
 import './style.css';
 
 function Header() {
@@ -30,21 +29,21 @@ function Header() {
 
   return (
     <div className='header_area'>
-      <nav className='navbar navbar-expand-lg navbar-light px-3 d-flex justify-content-between'>
+      <nav className='navbar navbar-expand-lg navbar-light mx-0 mx-xl-5 px-0 py-xl-1 py-lg-0  d-flex justify-content-between'>
         <div className='d-flex align-items-center'>
           <button className='button pt-3 px-3 d-xl-none side-menu text-primary' onClick={(e) => toogleSidebar(e)}>
             <FiMenu size='22' />
           </button>
-          <FaSearch size={16} color='#3c4858' className='d-none d-lg-flex' />
+          <FiSearch size={18} color='#fff' className='d-none d-lg-flex' />
           <input
             type='text'
             name='search'
             id='search'
             className='header-search py-lg-3 px-2  d-none d-lg-flex'
-            placeholder='Search...'
+            placeholder='procurar...'
           />
         </div>
-        <ul className='navbar-nav d-flex align-items-center'>
+        <ul className='navbar-nav d-flex align-items-center px-3'>
           <li className='nav-item dropdown d-none d-lg-flex'>
             <a
               className='nav-link dropdown-toggle notification d-flex align-items-center no-caret'
@@ -55,7 +54,7 @@ function Header() {
               aria-haspopup='true'
               aria-expanded='false'
             >
-              <FaBell size={22} color='#3c4858' />
+              <FiBell size={22} color='#fff' />
             </a>
             <div className='dropdown-menu p-2' aria-labelledby='navbarDropdownMenuLink'>
               <a className='dropdown-item' href='#'>
@@ -93,51 +92,6 @@ function Header() {
             </div>
           </li>
         </ul>
-        {/* <div class='collapse navbar-collapse' id='navbarNav'>
-          <div class='mr-auto'></div>
-          <ul class='navbar-nav d-flex align-items-center'>
-            <li class='nav-item dropdown'>
-              <a
-                class='nav-link dropdown-toggle notification d-flex align-items-center no-caret'
-                href='#'
-                id='navbarDropdownMenuLink'
-                role='button'
-                data-toggle='dropdown'
-                aria-haspopup='true'
-                aria-expanded='false'
-              >
-                <FaBell size={22} color='#A0A5B9' />
-              </a>
-              <div class='dropdown-menu' aria-labelledby='navbarDropdownMenuLink'>
-                <a class='dropdown-item' href='#'>
-                  Nenhuma Notificação
-                </a>
-              </div>
-            </li>
-            <li class='nav-item dropdown'>
-              <a
-                class='nav-link dropdown-toggle user-profile d-flex align-items-center '
-                href='#'
-                id='navbarDropdownMenuLink'
-                role='button'
-                data-toggle='dropdown'
-                aria-haspopup='true'
-                aria-expanded='false'
-              >
-                <img src={Profile} alt='avatar' className='img-fluid' />
-                <span>Matheus Nunes</span>
-              </a>
-              <div class='dropdown-menu' aria-labelledby='navbarDropdownMenuLink'>
-                <a class='dropdown-item' href='#'>
-                  Configurações
-                </a>
-                <a class='dropdown-item' href='#'>
-                  Sair
-                </a>
-              </div>
-            </li>
-          </ul>
-        </div> */}
       </nav>
     </div>
   );

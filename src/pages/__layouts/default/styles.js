@@ -6,6 +6,19 @@ export const Container = styled.div`
   height: 100%;
   background: var(--background-color);
   /* background: #f5f9fc; */
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    pointer-events: none;
+    height: 430px;
+    background: linear-gradient(270deg, #52b6fe, #4db4fe);
+    border-bottom-right-radius: 30rem;
+  }
 `;
 
 export const Content = styled.div`

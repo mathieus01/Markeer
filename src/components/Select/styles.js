@@ -27,3 +27,7 @@ export const SelectCustomize = styled.select`
     box-shadow: inset 0 1px 1px rgba(31, 45, 61, 0.075), 0 0 20px rgba(5, 170, 255, 0.1);
   }
 `;
+
+export const Error = styled.span`
+  font-size: 13px;
+`;

@@ -16,7 +16,7 @@ export const Container = styled.div`
     width: 86% !important;
   }
   .surgery-search::placeholder {
-    color: var(--text-color2) !important;
+    color: var(--text-color) !important;
   }
 `;
 

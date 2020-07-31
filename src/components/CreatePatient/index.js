@@ -8,6 +8,7 @@ import moment from 'moment';
 import Util from '../../utils/util';
 import InputComponent from '../InputComponent';
 import Select from '../Select';
+import * as Yup from 'yup';
 import { Container, Title, Body, ButtonGroup } from './styles';
 
 function CreatePatient({
@@ -44,7 +45,39 @@ function CreatePatient({
     setGroups(groups);
   }, [stateGroup.groups]);
 
+  async function handleValidationSubmit(data) {
+    let validacao = true;
+    try {
+      formRef.current.setErrors({});
+      const schema = Yup.object().shape({
+        group_id: Yup.string().required('Selecione o grupo que deseja salva o paciente'),
+        name: Yup.string().required('Informe o nome do paciente'),
+        birthday: Yup.date().required('Informe a data de nascimento'),
+        helthcare: Yup.string().required('Informe o plano de saude do paciente'),
+        gender: Yup.string().required('Informe o genero do paciente'),
+        alergy: Yup.string().required('Informe se o paciente possui alergia'),
+      });
+      await schema.validate(data, {
+        abortEarly: false,
+      });
+    } catch (err) {
+      const validationErrors = {};
+      if (err instanceof Yup.ValidationError) {
+        err.inner.forEach((error) => {
+          validationErrors[error.path] = error.message;
+        });
+        formRef.current.setErrors(validationErrors);
+        validacao = false;
+      }
+    }
+    return validacao;
+  }
+
   function handleSubmit(data) {
+    if (handleValidationSubmit(data)) {
+      return;
+    }
+
     data.birthday = Util.stringToDateAmerican(data.birthday);
     if (patient && patient.id) {
       updatePatientRequest({ ...data, id: patient.id });
@@ -109,7 +142,7 @@ function CreatePatient({
         </Body>
         <ButtonGroup className='form-group d-flex justify-content-between pt-2 pt-md-3 m-0'>
           <button type='submit' class='btn btn-sm primary-button rounded-pill px-3'>
-            Criar
+            Salvar
           </button>
           <button type='button' class='btn btn-sm btn-danger' onClick={(e) => closeModal(false)}>
             Cancelar
