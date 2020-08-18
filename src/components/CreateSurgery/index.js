@@ -71,7 +71,7 @@ function CreateSurgery({ surgery, patient, closeModal, saveSurgeryRequest, updat
   }
 
   async function handleSubmit(data) {
-    if (handleValidationSubmit(data)) {
+    if (!(await handleValidationSubmit(data))) {
       return;
     }
 

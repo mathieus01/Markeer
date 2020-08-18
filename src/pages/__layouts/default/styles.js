@@ -15,8 +15,9 @@ export const Container = styled.div`
     width: 100%;
     z-index: -1;
     pointer-events: none;
-    height: 430px;
-    background: linear-gradient(270deg, #52b6fe, #4db4fe);
+    height: 475px;
+    /* background: linear-gradient(270deg, #52b6fe, #4db4fe);  */
+    background: linear-gradient(90deg, #2684ff 0%, #4c9aff 100%);
     border-bottom-right-radius: 30rem;
   }
 `;

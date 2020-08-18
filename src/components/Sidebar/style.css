@@ -54,7 +54,7 @@
 }
 
 .sidebar .menu .menu-list .menu-item svg {
-  color: #eef9ff !important;
+  color: var(--text-color-white) !important;
 }
 
 /* .sidebar .menu .menu-list .menu-item:hover span {

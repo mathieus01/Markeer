@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const List = styled.ul`
-  max-height: 83vh;
+  max-height: 74vh;
   overflow: auto;
   margin-bottom: 0;
 `;

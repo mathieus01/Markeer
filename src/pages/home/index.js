@@ -29,11 +29,13 @@ function Home() {
   }, []);
 
   return (
-    <Container className='container-fluid py-lg-4 px-lg-5 p-md-3 p-sm-3 p-3'>
+    <Container className='container-fluid pb-xl-0 pt-xl-4 px-xl-5 py-lg-3 px-xl-4 px-md-3 py-md-3 p-0'>
       <div class='page-title mt-2'>
         <div class='row justify-content-between align-items-center'>
           <div class='col-md-6 col-12 mb-1 mb-md-0 px-4 px-md-3'>
-            <h5 class='h3 font-weight-400 mb-0 text-white'>Ola, {username}</h5>
+            <h5 class='h3 font-weight-400 mb-0 text-white'>
+              Ola, <span className='text-warning'>{username}</span>{' '}
+            </h5>
             <span class='text-sm text-white opacity-8'>Tenha um bom dia!</span>
           </div>
         </div>
@@ -200,7 +202,7 @@ function Home() {
         </div>
       </div>
       <div className='row'>
-        <div className='col-xl-6 col-md-12 pb-4'>
+        <div className='col-xl-6 col-md-12 pb-4 pb-lg-0'>
           <div className='card time-area'>
             <div className='time-header d-flex justify-content-between px-4 py-3'>
               <strong>Time Admitted</strong>
@@ -234,7 +236,7 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className='col-xl-3 col-md-6 pb-4'>
+        <div className='col-xl-3 col-md-6 pb-4 pb-lg-0'>
           <div className='card division-area'>
             <div className='division-header px-4 py-3'>
               <strong>Patients By Division</strong>
@@ -279,7 +281,7 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className='col-xl-3 col-md-6 pb-4'>
+        <div className='col-xl-3 col-md-6 pb-4 pb-lg-0'>
           <div className='card month-area'>
             <div className='month-header px-4 py-3'>
               <strong>Patients By Month</strong>

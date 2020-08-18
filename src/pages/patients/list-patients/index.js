@@ -13,14 +13,14 @@ import { FiPlus } from 'react-icons/fi';
 import { Container, ListPatientTitle } from './styles';
 
 const ListPatients = ({ patientState, getPatientsRequest, removePatientRequest, history, ...rest }) => {
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   const [patients, setPatients] = useState([]);
   const [selectedPatient, setSelectedPatient] = useState();
   const [openModalPatient, setOpenModalPatient] = useState(false);
 
   useEffect(() => {
-    getPatientsRequest(page);
-  }, [getPatientsRequest, page]);
+    getPatients();
+  }, []);
 
   useEffect(() => {
     setPatients(patientState.patients);
@@ -49,6 +49,13 @@ const ListPatients = ({ patientState, getPatientsRequest, removePatientRequest, 
     }
   };
 
+  function getPatients() {
+    if (patientState.page < patientState.lastPage || page === 0) {
+      setPage(page + 1);
+      getPatientsRequest(page + 1);
+    }
+  }
+
   const confirmDelete = (id) => {
     Swal.fire({
       title: 'Excluir Paciente',
@@ -67,11 +74,15 @@ const ListPatients = ({ patientState, getPatientsRequest, removePatientRequest, 
   };
 
   return (
-    <Container className='container-fluid h-100 py-xl-4 px-xl-5 py-lg-3 px-xl-4 px-md-3 py-md-3 p-0'>
+    <Container className='container-fluid pb-xl-0 pt-xl-4 px-xl-5 py-lg-3 px-xl-4 px-md-3 py-md-3 p-0'>
       <div class='page-title mt-2'>
         <div class='row justify-content-between align-items-center'>
           <div class='col-md-6 col-12 mb-1 mb-md-0 px-4 px-md-3'>
             <h5 class='h3 font-weight-400 mb-0 text-white'>Pacientes</h5>
+            <div class='align-items-center d-inline-flex'>
+              <span class='h4 text-warning mb-0 mr-2'>{patientState.total}</span>
+              <span class='text-sm opacity-7 text-white'>Pacientes</span>
+            </div>
           </div>
         </div>
       </div>
@@ -90,7 +101,7 @@ const ListPatients = ({ patientState, getPatientsRequest, removePatientRequest, 
               </button>
             </ListPatientTitle>
             {patientState.loading && <Loading />}
-            <ListComponent patients={patients} selectPatient={selectPatient} />
+            <ListComponent patients={patients} selectPatient={selectPatient} getPatients={getPatients} />
           </div>
         </div>
         <div className='col-xl-8 col-lg-7 col-md-6 pl-xl-4 pl-md-2 d-none d-md-block'>

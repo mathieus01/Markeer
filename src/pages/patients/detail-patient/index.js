@@ -24,6 +24,7 @@ const DetailPatient = ({
   patientState,
   surgeryState,
 }) => {
+  const [page, setPage] = useState(0);
   const [selected, setSelected] = useState(false);
   const [patient, setPatient] = useState(null);
   const [surgery, setSurgery] = useState(null);
@@ -39,9 +40,10 @@ const DetailPatient = ({
 
   useEffect(() => {
     if (patient && patient.id) {
-      getSurgeriesRequest({ patient: patient.id });
+      setPage(page + 1);
+      getSurgeriesRequest({ patient: patientState.patient.id, page: page + 1 });
     }
-  }, [patient, getSurgeriesRequest]);
+  }, [patient]);
 
   useEffect(() => {
     setPatient(patientState.patient);
@@ -80,6 +82,13 @@ const DetailPatient = ({
   const handleOpenModalPatient = (value) => {
     setOpenModalPatient(value);
   };
+
+  function getSurgeries() {
+    if (surgeryState.page < surgeryState.lastPage) {
+      setPage(page + 1);
+      getSurgeriesRequest({ patient: patientState.patient.id, page: page + 1 });
+    }
+  }
 
   const confirmDelete = (id) => {
     Swal.fire({
@@ -135,7 +144,12 @@ const DetailPatient = ({
                 </button>
               </section>
               {surgeryState.loading && <Loading />}
-              <ListSurgery surgeries={surgeries} handleSelectedSurgery={handleSelectedSurgery} selected={selected} />
+              <ListSurgery
+                getSurgeries={getSurgeries}
+                surgeries={surgeries}
+                handleSelectedSurgery={handleSelectedSurgery}
+                selected={selected}
+              />
             </div>
           </div>
         )}

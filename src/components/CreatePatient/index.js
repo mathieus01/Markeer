@@ -70,11 +70,12 @@ function CreatePatient({
         validacao = false;
       }
     }
+    console.log(validacao);
     return validacao;
   }
 
-  function handleSubmit(data) {
-    if (handleValidationSubmit(data)) {
+  async function handleSubmit(data) {
+    if (!(await handleValidationSubmit(data))) {
       return;
     }
 
@@ -96,15 +97,15 @@ function CreatePatient({
       <Form onSubmit={handleSubmit} ref={formRef} className='h-100'>
         <Body className='mt-2 overflow-auto'>
           <div class='form-group'>
-            <label for='exampleInputEmail1'>Grupo</label>
+            <label htmlFor='exampleInputEmail1'>Grupo</label>
             <Select options={groups} name='group_id' />
           </div>
           <div class='form-group'>
-            <label for='exampleInputPassword1'>Nome</label>
+            <label htmlFor='exampleInputPassword1'>Nome</label>
             <InputComponent type='text' name='name' />
           </div>
           <div class='form-group'>
-            <label for='exampleInputPassword1'>Data de Nascimento</label>
+            <label htmlFor='exampleInputPassword1'>Data de Nascimento</label>
             <InputComponent
               type='date'
               pattern='(?:((?:0[1-9]|1[0-9]|2[0-9])\/(?:0[1-9]|1[0-2])|(?:30)\/(?!02)(?:0[1-9]|1[0-2])|31\/(?:0[13578]|1[02]))\/(?:19|20)[0-9]{2})'
@@ -112,31 +113,31 @@ function CreatePatient({
             />
           </div>
           <div class='form-group'>
-            <label for='exampleInputPassword1'>Genero</label>
+            <label htmlFor='exampleInputPassword1'>Genero</label>
             <Select options={genders} name='gender' />
           </div>
           <div class='form-group'>
-            <label for='exampleInputPassword1'>Email</label>
+            <label htmlFor='exampleInputPassword1'>Email</label>
             <InputComponent type='text' name='email' />
           </div>
           <div class='form-group'>
-            <label for='exampleInputPassword1'>Telefone</label>
+            <label htmlFor='exampleInputPassword1'>Telefone</label>
             <InputComponent type='text' name='phone' />
           </div>
           <div class='form-group'>
-            <label for='exampleInputPassword1'>Endereco</label>
+            <label htmlFor='exampleInputPassword1'>Endereco</label>
             <InputComponent type='text' name='address' />
           </div>
           <div class='form-group'>
-            <label for='exampleInputPassword1'>Profissão</label>
+            <label htmlFor='exampleInputPassword1'>Profissão</label>
             <InputComponent type='text' name='occupation' />
           </div>
           <div class='form-group'>
-            <label for='exampleInputPassword1'>Convenio</label>
+            <label htmlFor='exampleInputPassword1'>Convenio</label>
             <InputComponent type='text' name='helthcare' />
           </div>
           <div class='form-group'>
-            <label for='exampleInputPassword1'>Comorbidades/Alergias</label>
+            <label htmlFor='exampleInputPassword1'>Comorbidades/Alergias</label>
             <InputComponent type='text' name='alergy' />
           </div>
         </Body>

@@ -8,7 +8,7 @@ export function* getSurgeries(action) {
     const { data } = yield call(api.get, `surgeries`, {
       params: action.payload.filter,
     });
-    yield put(SurgeryActions.getSurgeriesSuccess(data.data));
+    yield put(SurgeryActions.getSurgeriesSuccess(data));
   } catch (err) {
     const { error } = err.response.data;
     toast.error(error.message);

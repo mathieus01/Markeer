@@ -16,11 +16,11 @@ function Select({ name, options, ...rest }) {
   return (
     <>
       <SelectCustomize {...rest} name={name} ref={selectRef}>
-        <option value='' selected disabled>
-          Selecione
-        </option>
+        <option disabled>Selecione</option>
         {options.map((option) => (
-          <option value={option.value}>{option.label}</option>
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
         ))}
       </SelectCustomize>
       {error && <Error className='error text-danger'>{error}</Error>}

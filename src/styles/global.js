@@ -22,19 +22,19 @@ strong,p{
 }
 
 :root {
-  --primary-color: #feb74e;
+  --primary-color: #FFAB00;
   --background-color: transparent;
-  --secondary-color: #efefef;
-  --title-color: #3c4858;
+  --secondary-color: #FFFAFF;
+  --title-color: #303036;
   --text-color: #8492a6;
   --svg-color:#0662E2;
-  --text-color-white: #FFF;
+  --text-color-white: #F8FEFC;
   --border-color: #201f1f17;
   --box-shadow-color: #eff0f4;
   --gradient-color: linear-gradient(180deg, #0FAFFf 0%, #1ab2ff 100%);
   --shadow-color: 0px 10px 30px #33bbff;
   --box-shadow: 0px 4px 8px rgba(18,38,63,0.05);
-  --box-shadow2: 0 -0.5rem 1.5rem rgba(18,38,63,0.035);
+  --box-shadow2: 0 0.75rem 1.5rem rgba(18,38,63,0.035);
   --border-bottom: 1px solid var(--secondary-color) !important;
   --fc-border-color: #eff2f7;
   
@@ -272,6 +272,10 @@ a:hover{
 
 .fc .fc-highlight{
   background: rgba(51, 214, 159,0.3);
+}
+
+.infinite-scroll-component__outerdiv{
+  width: 100%!important;
 }
 
 `;
