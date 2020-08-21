@@ -7,7 +7,7 @@ export const Container = styled.div`
   background: var(--background-color);
   /* background: #f5f9fc; */
 
-  &::before {
+  /* &::before {
     content: '';
     position: absolute;
     top: 0;
@@ -15,11 +15,9 @@ export const Container = styled.div`
     width: 100%;
     z-index: -1;
     pointer-events: none;
-    height: 475px;
-    /* background: linear-gradient(270deg, #52b6fe, #4db4fe);  */
-    background: linear-gradient(90deg, #2684ff 0%, #4c9aff 100%);
-    border-bottom-right-radius: 30rem;
-  }
+    height: 425px;
+    background: var(--primary-color);
+  } */
 `;
 
 export const Content = styled.div`

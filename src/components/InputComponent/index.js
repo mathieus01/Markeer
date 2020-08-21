@@ -16,7 +16,7 @@ export default function InputComponent({ name, type, pattern, ...rest }) {
 
   return (
     <>
-      <Input type={type} ref={inputRef} {...rest} className='form-control' pattern={pattern} />
+      <Input type={type} ref={inputRef} {...rest} className={`form-control`} error={error} pattern={pattern} />
       {error && <Error className='error text-danger'>{error}</Error>}
     </>
   );

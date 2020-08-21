@@ -36,12 +36,14 @@ export const ProcedureInput = styled.input`
   color: #8492a6;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #e0e6ed;
-  border-radius: 0.25rem;
-  -webkit-box-shadow: inset 0 1px 1px rgba(31, 45, 61, 0.075);
-  box-shadow: inset 0 1px 1px rgba(31, 45, 61, 0.075);
+  border: 1px solid #fdfdfe !important;
+  border-left: 2px solid var(--primary-color) !important;
+  border-radius: 2px;
+  -webkit-box-shadow: var(--box-shadow3);
+  box-shadow: var(--box-shadow3);
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
+  margin-bottom: -5px;
 
   &:focus {
     color: #8492a6;

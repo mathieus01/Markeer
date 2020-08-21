@@ -94,7 +94,7 @@ export const SurgeryPhotos = styled.div`
     li {
       line-height: 150px;
       list-style: none;
-      background: var(--secondary-color);
+      background: var(--light-color);
       cursor: pointer;
     }
   }

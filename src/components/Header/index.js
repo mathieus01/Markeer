@@ -29,7 +29,7 @@ function Header() {
 
   return (
     <div className='header_area'>
-      <nav className='navbar navbar-expand-lg navbar-light mx-0 mx-xl-5 px-0 py-xl-1 py-lg-0  d-flex justify-content-between'>
+      <nav className='navbar navbar-expand-lg navbar-light mx-0 px-xl-5 px-0 py-xl-2 py-lg-0  d-flex justify-content-between'>
         <div className='d-flex align-items-center'>
           <button className='button pt-3 px-3 d-xl-none side-menu text-primary' onClick={(e) => toogleSidebar(e)}>
             <FiMenu size='22' />
@@ -56,11 +56,6 @@ function Header() {
             >
               <FiBell size={22} color='#fff' />
             </a>
-            <div className='dropdown-menu p-2' aria-labelledby='navbarDropdownMenuLink'>
-              <a className='dropdown-item' href='#'>
-                Nenhuma Notificação
-              </a>
-            </div>
           </li>
           <li className='nav-item dropdown'>
             <a

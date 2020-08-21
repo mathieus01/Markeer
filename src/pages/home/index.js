@@ -30,13 +30,13 @@ function Home() {
 
   return (
     <Container className='container-fluid pb-xl-0 pt-xl-4 px-xl-5 py-lg-3 px-xl-4 px-md-3 py-md-3 p-0'>
-      <div class='page-title mt-2'>
+      <div class='page-title '>
         <div class='row justify-content-between align-items-center'>
           <div class='col-md-6 col-12 mb-1 mb-md-0 px-4 px-md-3'>
-            <h5 class='h3 font-weight-400 mb-0 text-white'>
-              Ola, <span className='text-warning'>{username}</span>{' '}
+            <h5 class='h3 font-weight-400 mb-0 '>
+              Ola, <span className='text-primary'>{username}</span>{' '}
             </h5>
-            <span class='text-sm text-white opacity-8'>Tenha um bom dia!</span>
+            <span class='text-sm opacity-8'>Tenha um bom dia!</span>
           </div>
         </div>
       </div>
@@ -142,7 +142,7 @@ function Home() {
                     options={{
                       title: 'Population of Largest U.S. Cities',
                       chartArea: { width: '100%' },
-                      colors: ['#33D69F', '#66C2F5'],
+                      colors: ['#33D69F', '#2884FF'],
                       legend: { position: 'none' },
                     }}
                   />
@@ -158,7 +158,7 @@ function Home() {
                     ]}
                     options={{
                       chartArea: { width: '100%', height: '70%', top: 0 },
-                      colors: ['#33D69F', '#66C2F5'],
+                      colors: ['#33D69F', '#2884FF'],
                       sliceVisibilityThreshold: 0.1,
                       pieHole: 0.8,
                       legend: {
@@ -187,7 +187,7 @@ function Home() {
                   ['Male', 65], // Below limit.
                 ]}
                 options={{
-                  colors: ['#FE8B56', '#66C2F5'],
+                  colors: ['#FE8B56', '#2884FF'],
                   sliceVisibilityThreshold: 0.2,
                   chartArea: { width: '100%', height: '70%', top: 0 },
                   pieHole: 0.8,
@@ -282,7 +282,7 @@ function Home() {
           </div>
         </div>
         <div className='col-xl-3 col-md-6 pb-4 pb-lg-0'>
-          <div className='card month-area'>
+          <div className='card month-area '>
             <div className='month-header px-4 py-3'>
               <strong>Patients By Month</strong>
             </div>
@@ -305,7 +305,7 @@ function Home() {
                   animation: { duration: 1500, startup: true, easing: 'inAndOut' },
                   chartArea: { width: '100%', height: '80%', top: 0 },
                   legend: { position: 'none' },
-                  colors: ['#66C2F5'],
+                  colors: ['#2884FF'],
                   curveType: 'function',
                   hAxis: { gridlines: { count: 0 }, baselineColor: 'none', ticks: [] },
                   vAxis: { gridlines: { count: 0 }, baselineColor: '#F4F5F7', ticks: [] },

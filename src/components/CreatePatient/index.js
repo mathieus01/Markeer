@@ -142,7 +142,7 @@ function CreatePatient({
           </div>
         </Body>
         <ButtonGroup className='form-group d-flex justify-content-between pt-2 pt-md-3 m-0'>
-          <button type='submit' class='btn btn-sm primary-button rounded-pill px-3'>
+          <button type='submit' class='btn btn-sm primary-button px-3'>
             Salvar
           </button>
           <button type='button' class='btn btn-sm btn-danger' onClick={(e) => closeModal(false)}>

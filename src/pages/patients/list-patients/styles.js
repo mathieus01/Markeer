@@ -1,10 +1,19 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  padding: 2.5rem;
-  max-height: 93vh;
+  max-height: 94vh;
   overflow-y: auto;
   overflow-x: hidden;
+
+  @media (min-width: 1248px) {
+    padding-right: 9rem !important;
+    padding-left: 9rem !important;
+  }
+
+  @media (min-width: 1024px) and (max-width: 1247px) {
+    padding-right: 4rem !important;
+    padding-left: 4rem !important;
+  }
 
   .active {
     border-bottom: 3px solid var(--primary-color);

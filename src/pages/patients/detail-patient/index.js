@@ -109,10 +109,10 @@ const DetailPatient = ({
 
   return (
     <Container className='container-fluid pb-xl-0 pt-xl-4 px-xl-5 py-lg-3 px-xl-4 px-md-3 py-md-3 p-0'>
-      <div class='page-title mt-2'>
+      <div class='page-title '>
         <div class='row justify-content-between align-items-center'>
           <div class='col-md-6 col-12 mb-1 mb-md-0 px-4 px-md-3'>
-            <h5 class='h3 font-weight-400 mb-0 text-white'>Detalhar Paciente</h5>
+            <h5 class='h3 font-weight-400 mb-0 '>Detalhar Paciente</h5>
           </div>
         </div>
       </div>

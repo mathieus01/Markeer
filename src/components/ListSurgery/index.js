@@ -40,7 +40,21 @@ function ListSurgery({ surgeries, handleSelectedSurgery, getSurgeries, selected 
                         <small>{moment(surgery.date).format('DD, MMM, YYYY')}</small>
                       </div>
                       <p className='mb-0'>Queda da escada</p>
-                      <span>{surgery.text_report ? surgery.text_report : 'Não informado'}</span>
+                      {surgery.type === '0' && (
+                        <span className='badge badge-warning text-light' style={{ width: 'fit-content' }}>
+                          Urgencia
+                        </span>
+                      )}
+                      {surgery.type === '1' && (
+                        <span className='badge badge-danger text-light' style={{ width: 'fit-content' }}>
+                          Emergencia
+                        </span>
+                      )}
+                      {surgery.type === '2' && (
+                        <span className='badge badge-primary text-light' style={{ width: 'fit-content' }}>
+                          Eletiva
+                        </span>
+                      )}
                     </div>
                   </div>
                 </SurgeryItem>

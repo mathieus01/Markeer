@@ -46,5 +46,10 @@ export const Section = styled.div`
     color: var(--text-color);
     font-size: 0.875rem;
     font-weight: 400;
+    position: relative;
+    flex-grow: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 `;

@@ -22,20 +22,23 @@ strong,p{
 }
 
 :root {
-  --primary-color: #FFAB00;
-  --background-color: transparent;
-  --secondary-color: #FFFAFF;
+  --primary-color: #2884FF;
+  --danger-color: #F5003F;
+  --light-color: #FFFAFF;
+
+  --background-color: #f9faFB;
   --title-color: #303036;
-  --text-color: #8492a6;
+  --text-color: #A3A7B4;
   --svg-color:#0662E2;
   --text-color-white: #F8FEFC;
   --border-color: #201f1f17;
   --box-shadow-color: #eff0f4;
   --gradient-color: linear-gradient(180deg, #0FAFFf 0%, #1ab2ff 100%);
   --shadow-color: 0px 10px 30px #33bbff;
-  --box-shadow: 0px 4px 8px rgba(18,38,63,0.05);
-  --box-shadow2: 0 0.75rem 1.5rem rgba(18,38,63,0.035);
-  --border-bottom: 1px solid var(--secondary-color) !important;
+  --box-shadow: 2rem 0px 3rem rgba(18,38,63,.03);
+  --box-shadow2: 0 0.75rem 1.5rem rgba(18,38,63,.03);
+  --box-shadow3: 0 .5rem 1rem rgba(18,38,63,.05);
+  --border-bottom: 1px solid var(--light-color) !important;
   --fc-border-color: #eff2f7;
   
 
@@ -66,7 +69,7 @@ ul::-webkit-scrollbar-track {
 }
 
 ul::-webkit-scrollbar-thumb {
-  background: var(--secondary-color);
+  background: var(--light-color);
 }
 
 button{
@@ -92,8 +95,17 @@ a:hover{
   background: transparent;
 }
 
-.secondary-button{
-  background: var(--secondary-color);
+.text-primary{
+  color: var(--primary-color)
+}
+
+.text-title-color{
+  color:var(--title-color) !important;
+}
+
+
+.light-button{
+  background: var(--light-color);
 }
 
 .primary-button {
@@ -104,7 +116,7 @@ a:hover{
 }
 
 .btn-danger{
-  color: #dc3545 !important;
+  color: var(--danger-color) !important;
   background-color: #fff !important;
   border: none !important; 
 }
@@ -128,8 +140,9 @@ a:hover{
 .card {
     border: 1px solid #eff2f7 !important;
     border-radius: .375rem;
-    box-shadow: var(--box-shadow2);
     padding: 1rem 1.5rem;
+    background: #fff;
+    box-shadow:var(--box-shadow2);
 
 
   @media (max-width: 425px){

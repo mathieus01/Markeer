@@ -75,18 +75,18 @@ const ListPatients = ({ patientState, getPatientsRequest, removePatientRequest, 
 
   return (
     <Container className='container-fluid h-100 pb-xl-0 pt-xl-4 px-xl-5 py-lg-3 px-xl-4 px-md-3 py-md-3 p-0'>
-      <div class='page-title mt-2'>
+      <div class='page-title '>
         <div class='row justify-content-between align-items-center'>
           <div class='col-md-6 col-12 mb-1 mb-md-0 px-4 px-md-3'>
-            <h5 class='h3 font-weight-400 mb-0 text-white'>Pacientes</h5>
+            <h5 class='h3 font-weight-400 mb-0 '>Pacientes</h5>
             <div class='align-items-center d-inline-flex'>
-              <span class='h4 text-warning mb-0 mr-2'>{patientState.total}</span>
-              <span class='text-sm opacity-7 text-white'>Pacientes</span>
+              <span class='h4 text-primary mb-0 mr-2'>{patientState.total}</span>
+              <span class='text-sm opacity-7 '>Pacientes</span>
             </div>
           </div>
         </div>
       </div>
-      <div className='row h-100 pt-2 pt-md-3'>
+      <div className='row h-100 pt-2'>
         <div className='col-xl-4 col-lg-5 col-md-6'>
           <div className='card h-100 mx-2 mx-md-0 mt-2 mt-md-0'>
             <ListPatientTitle className='pb-3 mb-2 d-flex w-100 justify-content-between'>
