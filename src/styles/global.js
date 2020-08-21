@@ -26,7 +26,7 @@ strong,p{
   --danger-color: #F5003F;
   --light-color: #FFFAFF;
 
-  --background-color: #f9faFB;
+  --background-color: #F9FBFD;
   --title-color: #303036;
   --text-color: #A3A7B4;
   --svg-color:#0662E2;
@@ -102,10 +102,20 @@ a:hover{
 .text-title-color{
   color:var(--title-color) !important;
 }
+.text-secondary-color{
+  color:var(--text-color) !important;
+}
 
+.opacity-8{
+  opacity: 0.8;
+}
 
 .light-button{
   background: var(--light-color);
+}
+
+.font-weight-600{
+  font-weight: 600 !important;
 }
 
 .primary-button {

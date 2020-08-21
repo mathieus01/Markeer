@@ -33,7 +33,7 @@ function Home() {
       <div class='page-title '>
         <div class='row justify-content-between align-items-center'>
           <div class='col-md-6 col-12 mb-1 mb-md-0 px-4 px-md-3'>
-            <h5 class='h3 font-weight-400 mb-0 '>
+            <h5 class='h3 font-weight-600 mb-0 '>
               Ola, <span className='text-primary'>{username}</span>{' '}
             </h5>
             <span class='text-sm opacity-8'>Tenha um bom dia!</span>

@@ -36,7 +36,7 @@ function Schedule({ surgeryState, getSurgeriesRequest }) {
       <div class='page-title '>
         <div class='row justify-content-between align-items-center'>
           <div class='col-md-6 col-12 mb-1 mb-md-0 px-4 px-md-3'>
-            <h5 class='h3 font-weight-400 mb-0 text-title-color'>Agenda</h5>
+            <h5 class='h3 font-weight-600 mb-0 text-title-color'>Agenda</h5>
             <span class='text-sm opacity-8 d-none d-md-flex text-title-color'>
               Data selecionada: <b className='text-primary'>{moment(dtFilter).format('DD/MM/YYYY')}</b>
             </span>

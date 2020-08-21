@@ -30,8 +30,8 @@ function ListSurgery({ surgeries, handleSelectedSurgery, getSurgeries, selected 
                 >
                   <div className='d-flex w-100 px-xl-0 py-2'>
                     <div className='col-2 px-0 d-flex justify-content-center align-items-center'>
-                      <div className='icon blue d-flex align-items-center p-3'>
-                        <FiActivity size='16' color='#4AB8FF' />
+                      <div className='icon blue d-flex align-items-center p-3' style={{ backgroundColor: '#2884FF' }}>
+                        <FiActivity size='16' color='#FFF' />
                       </div>
                     </div>
                     <div className='col-10 d-flex flex-column px-0'>
