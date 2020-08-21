@@ -5,7 +5,7 @@ export const Container = styled.aside`
   flex-direction: column;
   padding: 25px 5px;
   height: 100vh;
-  min-width: 4vw;
+  width: 4vw;
   background: var(--primary-color);
 
   @media (min-width: 1024px) and (max-width: 1248px) {

@@ -43,6 +43,7 @@ export const Section = styled.div`
     font-weight: 400;
   }
   span {
+    max-width: 30vw;
     color: var(--text-color);
     font-size: 0.875rem;
     font-weight: 400;
