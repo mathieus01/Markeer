@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Profile from '../../assets/images/profile.svg';
+import util from '../../utils/util';
 import { logout, getToken } from '../../services/auth';
 import jwtDecode from 'jwt-decode';
 import { Link } from 'react-router-dom';
@@ -13,6 +13,7 @@ function Header() {
     const token = getToken();
     if (token !== null && token !== 'undefined') {
       const { data } = jwtDecode(token);
+      console.log(data);
       setUser(data);
     }
   }, []);
@@ -68,10 +69,10 @@ function Header() {
               aria-expanded='false'
             >
               <img
-                src={Profile}
+                src={user && util.getAvatars(user.gender, user.avatar ? user.avatar : Math.floor(Math.random() * 5))}
                 alt='avatar'
                 className='img-fluid'
-                style={{ background: 'var(--box-shadow-color)', padding: '5px' }}
+                style={{ background: 'var(--box-shadow-color)', padding: '2px' }}
               />
               <span className='d-none d-lg-flex'>{user && user.username}</span>
             </a>

@@ -7,7 +7,7 @@ import { FiEdit, FiMapPin, FiTrash2, FiAlertTriangle, FiCalendar, FiFileText, Fi
 function DetailSurgery({ surgery, selected, confirmDelete, handleEditSurgery, handleSelectedSurgery }) {
   return (
     <Container className='w-100 px-3 h-100 mt-2 mt-md-0 mx-2 mx-md-0 d-flex flex-column overflow-auto'>
-      <div className='card' style={{ minHeight: '300px' }}>
+      <div className='card' style={{ height: 'fit-content' }}>
         <SurgeryHeader className='d-flex justify-content-between align-items-center pb-3'>
           <div className='d-flex align-items-center'>
             <button
@@ -40,27 +40,57 @@ function DetailSurgery({ surgery, selected, confirmDelete, handleEditSurgery, ha
           </div>
         </SurgeryHeader>
         <SurgeryInfo className='d-flex flex-column py-3 border-bottom-color'>
-          <div className='d-flex justify-content-between my-3'>
+          <div className='d-flex justify-content-between'>
             <div className='d-flex flex-lg-row flex-column align-items-center justify-content-center'>
-              <FiAlertTriangle size={22} color='#8A8F9D' className='mr-lg-2 mb-lg-0  mb-2 mr-0' />
-              <span>{surgery.cause ? surgery.cause : 'Não informado'}</span>
+              <span className='d-flex flex-column'>
+                {surgery.type === '0' && (
+                  <strong className='badge badge-warning text-light' style={{ width: 'fit-content' }}>
+                    Urgencia
+                  </strong>
+                )}
+                {surgery.type === '1' && (
+                  <strong className='badge badge-danger text-light' style={{ width: 'fit-content' }}>
+                    Emergencia
+                  </strong>
+                )}
+                {surgery.type === '2' && (
+                  <strong className='badge badge-primary text-light' style={{ width: 'fit-content' }}>
+                    Eletiva
+                  </strong>
+                )}
+              </span>
             </div>
-            <div className='d-flex flex-lg-row flex-column align-items-center'>
-              <FiMapPin size={22} color='#8A8F9D' className='mr-lg-2 mb-lg-0  mb-2 mr-0' />
-              <span>{surgery.location ? surgery.location : 'Não informado'}</span>
+          </div>
+          <div className='d-flex flex-md-row flex-column justify-content-between '>
+            <div className='d-flex flex-lg-row  align-items-center my-md-2 mt-2 mb-1'>
+              <FiAlertTriangle size={30} className='mr-2 mb-0 text-primary' />
+              <span className='d-flex flex-column'>
+                <small>Causa da Cirurgia</small>
+                <strong>{surgery.cause ? surgery.cause : 'Não informado'}</strong>
+              </span>
             </div>
-            <div className='d-flex flex-lg-row flex-column align-items-center'>
-              <FiCalendar size={22} color='#8A8F9D' className='mr-lg-2 mb-lg-0  mb-2 mr-0' />
-              <span>{surgery.date ? moment(surgery.date).format('DD/MM/YYYY') : 'Não informado'}</span>
+            <div className='d-flex flex-lg-row  align-items-center my-md-2 my-1'>
+              <FiMapPin size={30} className='mr-2 mb-0 text-primary' />
+              <span className='d-flex flex-column'>
+                <small>Local da cirurgia</small>
+                <strong>{surgery.location ? surgery.location : 'Não informado'}</strong>
+              </span>
+            </div>
+            <div className='d-flex flex-lg-row  align-items-center my-md-2 my-1'>
+              <FiCalendar size={30} className='mr-2 mb-0 text-primary' />
+              <span className='d-flex flex-column'>
+                <small>Data da Cirurgia</small>
+                <strong>{surgery.date ? moment(surgery.date).format('DD/MM/YYYY') : 'Não informado'}</strong>
+              </span>
             </div>
           </div>
           <div className='d-flex flex-column'>
             <div className='col-lg-12 px-0 py-2 d-flex align-items-center'>
-              <FiFileText size={22} color='#8A8F9D' className='mr-2' />
-              <span>Relatorio de Cirurgia</span>
+              <FiFileText size={30} className='mr-2 mb-0 text-primary' />
+              <small>Relatorio de Cirurgia</small>
             </div>
             <div className='col-lg-12 px-0 pb-2'>
-              <small>{surgery.text_report ? surgery.text_report : 'Não informado'}</small>
+              <strong>{surgery.text_report ? surgery.text_report : 'Não informado'}</strong>
             </div>
           </div>
         </SurgeryInfo>

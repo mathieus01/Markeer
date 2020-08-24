@@ -39,20 +39,17 @@ export const SurgeryHeader = styled.div`
 export const SurgeryInfo = styled.div`
   min-height: fit-content;
   strong {
-    font: normal 600 18px/20px var(--roboto);
-    text-transform: uppercase;
+    font: normal 600 16px/18px var(--roboto);
+    text-transform: capitalize;
     color: var(--title-color);
   }
   span {
-    font: normal 500 16px/16px var(--roboto);
+    font: normal 500 14px/16px var(--roboto);
     color: var(--text-color);
   }
   small {
-    font: normal 400 14px/16px var(--roboto);
+    font: normal 400 13px/14px var(--roboto);
     color: var(--text-color);
-  }
-  svg {
-    color: var(--title-color) !important;
   }
 `;
 

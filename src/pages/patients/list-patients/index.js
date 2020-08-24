@@ -74,7 +74,7 @@ const ListPatients = ({ patientState, getPatientsRequest, removePatientRequest, 
   };
 
   return (
-    <Container className='container-fluid h-100 pb-xl-0 pt-xl-4 px-xl-5 py-lg-3 px-xl-4 px-md-3 py-md-3 p-0'>
+    <Container className='container-fluid h-100 pb-xl-0 pt-xl-4 px-xl-5 py-lg-3 px-xl-4 px-md-3 py-md-3 p-0 overflow-hidden'>
       <div class='page-title '>
         <div class='row justify-content-between align-items-center'>
           <div class='col-md-6 col-12 mb-1 mb-md-0 px-4 px-md-3'>
@@ -87,7 +87,7 @@ const ListPatients = ({ patientState, getPatientsRequest, removePatientRequest, 
         </div>
       </div>
       <div className='row h-100 pt-2'>
-        <div className='col-xl-4 col-lg-5 col-md-6'>
+        <div className='col-xl-4 col-lg-5 col-md-6 h-90'>
           <div className='card h-100 mx-2 mx-md-0 mt-2 mt-md-0'>
             <ListPatientTitle className='pb-3 mb-2 d-flex w-100 justify-content-between'>
               <h6 className='mb-0'>Pacientes</h6>
@@ -104,7 +104,7 @@ const ListPatients = ({ patientState, getPatientsRequest, removePatientRequest, 
             <ListComponent patients={patients} selectPatient={selectPatient} getPatients={getPatients} />
           </div>
         </div>
-        <div className='col-xl-8 col-lg-7 col-md-6 pl-xl-4 pl-md-2 d-none d-md-block'>
+        <div className='col-xl-8 col-lg-7 col-md-6 pl-xl-4 pl-md-2 d-none d-md-block h-90'>
           {selectedPatient && (
             <DetailPatient
               selectedPatient={selectedPatient}

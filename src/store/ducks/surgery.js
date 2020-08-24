@@ -9,6 +9,7 @@ export const Types = {
   UPDATE_SURGERY_SUCCESS: 'surgery/UPDATE_SURGERY_SUCCESS',
   REMOVE_SURGERY_REQUEST: 'surgery/REMOVE_SURGERY_REQUEST',
   REMOVE_SURGERY_SUCCESS: 'surgery/REMOVE_SURGERY_SUCCESS',
+  RESET_SURGERY_PAGE: 'surgery/RESET_SURGERY_PAGE',
   SET_ERROR: 'surgery/SET_ERROR',
 };
 
@@ -26,6 +27,7 @@ export default function surgery(state = INITIAL_STATE, action) {
     case Types.GET_SURGERIES_REQUEST:
       return { ...state, loading: true };
     case Types.GET_SURGERIES_SUCCESS:
+      console.log('consulta');
       const newPage = action.payload.response.page || 1;
       const lastPage = action.payload.response.lastPage;
       const surgeries = action.payload.response.data;
@@ -60,6 +62,16 @@ export default function surgery(state = INITIAL_STATE, action) {
       };
     case Types.SET_ERROR:
       return { ...state, loading: false };
+    case Types.RESET_SURGERY_PAGE:
+      console.log('resetado');
+      return {
+        ...state,
+        total: '0',
+        surgery: null,
+        surgeries: [],
+        page: 1,
+        lastPage: 1,
+      };
     default:
       return state;
   }
@@ -111,6 +123,10 @@ export const Creators = {
   removeSurgerySuccess: (id) => ({
     type: Types.REMOVE_SURGERY_SUCCESS,
     payload: { id },
+  }),
+
+  resetSurgeryPage: () => ({
+    type: Types.RESET_SURGERY_PAGE,
   }),
 
   setError: () => ({

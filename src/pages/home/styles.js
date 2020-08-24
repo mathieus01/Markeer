@@ -4,12 +4,12 @@ export const Container = styled.div`
   max-height: 94vh;
   overflow: auto;
 
-  @media (min-width: 1248px) {
+  @media (min-width: 1440px) {
     padding-right: 9rem !important;
     padding-left: 9rem !important;
   }
 
-  @media (min-width: 1024px) and (max-width: 1247px) {
+  @media (min-width: 1024px) and (max-width: 1439px) {
     padding-right: 4rem !important;
     padding-left: 4rem !important;
   }

@@ -56,8 +56,7 @@ export const List = styled.ul`
 `;
 
 export const Item = styled.li`
-  margin-bottom: 1rem;
-  padding: 0.5rem 0px;
+  padding: 1rem 0px;
 
   span {
     font: normal 300 10px/12px var(--roboto);

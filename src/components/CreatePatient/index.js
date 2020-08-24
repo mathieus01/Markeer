@@ -83,7 +83,7 @@ function CreatePatient({
     if (patient && patient.id) {
       updatePatientRequest({ ...data, id: patient.id });
     } else {
-      savePatientRequest(data);
+      savePatientRequest({ ...data, avatar: Math.floor(Math.random() * 5) });
     }
 
     closeModal(false);

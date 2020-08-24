@@ -1,8 +1,19 @@
 import React from 'react';
-
+import moment from 'moment';
 import { Container, Title, PatientInfo, PatientType, PatientSection, PatientAvatar } from './styles';
 import { Link } from 'react-router-dom';
-import { FiEdit, FiLogIn, FiMapPin, FiBriefcase, FiPhoneCall, FiArrowLeft } from 'react-icons/fi';
+import {
+  FiEdit,
+  FiLogIn,
+  FiMapPin,
+  FiBriefcase,
+  FiPhoneCall,
+  FiArrowLeft,
+  FiSunrise,
+  FiMail,
+  FiHeart,
+  FiMeh,
+} from 'react-icons/fi';
 
 function PatientCard({ avatar, patient, surgeries, handleEditPatient, navigateDetailPage }) {
   return (
@@ -50,38 +61,82 @@ function PatientCard({ avatar, patient, surgeries, handleEditPatient, navigateDe
         </button>
         
       </PatientButtons> */}
-      <PatientInfo className='d-flex flex-row w-100 mt-3'>
-        <PatientAvatar
-          src={avatar}
-          alt='avatar'
-          className='img-fluid rounded-circle'
-          style={{ background: 'var(--box-shadow-color)', padding: '5px' }}
-        />
-
-        <PatientType className='d-flex w-100'>
-          <div className='col-6 d-flex flex-column align-items-center py-2'>
-            <strong>{surgeries && surgeries.length}</strong>
-            <span>Cirurgias</span>
-          </div>
-          <div className='col-6 d-flex flex-column align-items-center py-2'>
-            <strong>0</strong>
-            <span>Consultas</span>
-          </div>
-        </PatientType>
+      <PatientInfo className='d-flex flex-row align-items-center w-100 mt-3'>
+        <div className='col-3 px-0'>
+          <PatientAvatar
+            src={avatar}
+            alt='avatar'
+            className='img-fluid rounded-circle'
+            style={{ background: 'var(--box-shadow-color)', padding: '2px' }}
+          />
+        </div>
+        <div className='col-9 px-0'>
+          <PatientType className='d-flex w-100'>
+            <div className='col-6 pl-2 py-2 pr-0'>
+              <span class='badge badge-primary py-1'>
+                <span class='badge badge-light '>{surgeries && surgeries.length}</span>{' '}
+                <strong className='text-white'>Cirurgias</strong>
+              </span>
+            </div>
+            <div className='col-6  p-2'>
+              <span class='badge badge-warning py-1'>
+                <span class='badge badge-light'>0</span> <strong className='text-white'>Consultas</strong>
+              </span>
+            </div>
+          </PatientType>
+        </div>
       </PatientInfo>
       <PatientSection className='d-flex flex-column w-100'>
-        <strong className=' mt-2'>{patient.name}</strong>
-        <div className='d-flex align-items-center px-0'>
-          <FiBriefcase size={16} className='mr-2' />
-          <span>{patient.occupation ? patient.occupation : 'Não informado'}</span>
+        <strong className='mb-0 mt-2'>{patient.name}</strong>
+        <div className='d-flex align-items-center px-0 my-1'>
+          <FiBriefcase size={18} className='mr-2' />
+          <span>
+            Trabalha como{' '}
+            <strong className='text-title-color'>{patient.occupation ? patient.occupation : 'Não informado'}</strong>
+          </span>
         </div>
-        <div className='d-flex align-items-center px-0'>
-          <FiPhoneCall size={16} className='mr-2' />
-          <span>{patient.phone ? patient.phone : 'Não informado'}</span>
+        <div className='d-flex align-items-center px-0 mb-1'>
+          <FiPhoneCall size={18} className='mr-2' />
+          <span>
+            Contato <strong className='text-title-color'>{patient.phone ? patient.phone : 'Não informado'}</strong>
+          </span>
         </div>
-        <div className='d-flex align-items-center px-0'>
-          <FiMapPin size={16} className='mr-2' />
-          <span>{patient.address ? patient.address : 'Não informado'}</span>
+        <div className='d-flex align-items-center px-0 mb-1'>
+          <FiMail size={18} className='mr-2' />
+          <span>
+            Email <strong className='text-title-color'>{patient.email ? patient.email : 'Não informado'}</strong>
+          </span>
+        </div>
+        <div className='d-flex align-items-center px-0 mb-1'>
+          <FiMapPin size={18} className='mr-2' />
+          <span>
+            Mora em <strong className='text-title-color'>{patient.address ? patient.address : 'Não informado'}</strong>
+          </span>
+        </div>
+        <div className='d-flex align-items-center px-0 mb-1'>
+          <FiHeart size={18} className='mr-2' />
+          <span>
+            Plano de saude{' '}
+            <strong className='text-title-color'>{patient.helthcare ? patient.helthcare : 'Não informado'}</strong>
+          </span>
+        </div>
+        <div className='d-flex align-items-center px-0 mb-1'>
+          <FiSunrise size={18} className='mr-2' />
+          <span>
+            Possui
+            <strong className='text-title-color'>
+              {patient.birthday
+                ? ` ${moment(new Date()).diff(moment(patient.birthday), 'year')} Anos`
+                : ' Idade Não informada'}
+            </strong>
+          </span>
+        </div>
+        <div className='d-flex align-items-center px-0 mb-1'>
+          <FiMeh size={18} className='mr-2' />
+          <span>
+            Alergias
+            <strong className='text-title-color'> {patient.alergy ? patient.alergy : 'Não Informada'}</strong>
+          </span>
         </div>
       </PatientSection>
     </Container>

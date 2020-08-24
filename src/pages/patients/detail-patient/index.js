@@ -7,7 +7,7 @@ import { Creators as SurgeryActions } from '../../../store/ducks/surgery';
 import Modal from 'react-modal';
 import Swal from 'sweetalert2';
 import { Container, ListSurgeryTitle } from './styles';
-import Profile from '../../../assets/images/profile.svg';
+import util from '../../../utils/util';
 import { FiPlus } from 'react-icons/fi';
 import Loading from '../../../components/Loading';
 import PatientCard from '../../../components/PatientCard';
@@ -116,20 +116,23 @@ const DetailPatient = ({
           </div>
         </div>
       </div>
-      <div className='row h-100 pt-2 pt-md-3'>
+      <div className='row pt-2 pt-md-3 ' style={{ height: '95%' }}>
         {patient && (
-          <div className='col-lg-4 col-md-6'>
+          <div className='col-lg-4 col-md-6' style={{ maxHeight: '100%' }}>
             <div className='card mx-2 mx-md-0 mt-2 mt-md-0'>
               <PatientCard
                 patient={patient}
-                avatar={Profile}
+                avatar={util.getAvatars(
+                  patient.gender,
+                  patient.avatar ? patient.avatar : Math.floor(Math.random() * 5)
+                )}
                 surgeries={surgeries}
                 handleEditPatient={handleOpenModalPatient}
               />
             </div>
             <div
               className={`card mt-2 mt-md-3 mx-2 mx-md-0 ${selected ? 'd-none d-md-flex' : 'd-flex'}`}
-              style={{ height: '70%' }}
+              style={{ height: '60%' }}
             >
               <ListSurgeryTitle className='pb-3'>
                 <h6 className='mb-0'>Cirurgias</h6>
@@ -154,27 +157,29 @@ const DetailPatient = ({
           </div>
         )}
         <div
-          className={`col-lg-8 col-md-6 col-12 px-0 h-100 d-none d-md-block ${
+          className={`h-100 col-lg-8 col-md-6 col-12 px-0 d-none d-md-block ${
             !selected ? 'd-none d-md-flex' : 'd-flex'
           }`}
         >
           {surgery && (
-            <CSSTransition
-              in={true}
-              mountOnEnter={true}
-              unmountOnExit={true}
-              appear={true}
-              timeout={1000}
-              classNames='my-node'
-            >
-              <DetailSurgery
-                surgery={surgery}
-                confirmDelete={confirmDelete}
-                handleEditSurgery={handleEditSurgery}
-                selected={selected}
-                handleSelectedSurgery={handleSelectedSurgery}
-              />
-            </CSSTransition>
+            <div className='w-100 h-100' style={{ height: '97%' }}>
+              <CSSTransition
+                in={true}
+                mountOnEnter={true}
+                unmountOnExit={true}
+                appear={true}
+                timeout={1000}
+                classNames='my-node'
+              >
+                <DetailSurgery
+                  surgery={surgery}
+                  confirmDelete={confirmDelete}
+                  handleEditSurgery={handleEditSurgery}
+                  selected={selected}
+                  handleSelectedSurgery={handleSelectedSurgery}
+                />
+              </CSSTransition>
+            </div>
           )}
         </div>
       </div>

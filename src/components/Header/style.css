@@ -61,8 +61,8 @@
   border-right: 10px solid transparent;
   border-bottom: 10px solid var(--primary-color);
   position: absolute;
-  bottom: 80px;
-  left: 9rem;
+  bottom: 100%;
+  left: 80%;
 }
 
 .dropdown-menu a {

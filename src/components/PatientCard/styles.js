@@ -24,18 +24,24 @@ export const PatientAvatar = styled.img`
 
 export const PatientType = styled.div`
   strong {
-    font: normal 600 16px/20px var(--roboto);
+    font: normal 600 14px/18px var(--roboto);
     color: var(--title-color);
   }
   span {
-    font: normal 600 14px/18px var(--roboto);
-    color: var(--text-color);
+    font: normal 400 13px/13px var(--roboto);
+    color: var(--title-color);
   }
 `;
 
 export const PatientSection = styled.div`
   span {
-    font: normal 500 13px/20px var(--roboto);
+    font: normal 400 15px/16px var(--roboto);
     color: var(--text-color);
+    position: relative;
+    flex-grow: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 90%;
   }
 `;

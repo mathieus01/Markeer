@@ -1,9 +1,27 @@
 import styled from 'styled-components';
 
 export const List = styled.ul`
+  height: 100%;
   max-height: 74vh;
   overflow: auto;
   margin-bottom: 0;
+
+  .infinite-scroll-component__outerdiv {
+    height: 100%;
+  }
+  div {
+    &::-webkit-scrollbar {
+      width: 0.25rem;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: transparent;
+    }
+  }
 `;
 
 export const Item = styled.li`
@@ -45,8 +63,8 @@ export const Section = styled.div`
   span {
     max-width: 30vw;
     color: var(--text-color);
-    font-size: 0.875rem;
     font-weight: 400;
+    font-size: 0.875rem;
     position: relative;
     flex-grow: 1;
     overflow: hidden;

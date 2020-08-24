@@ -7,6 +7,17 @@ import { FiActivity } from 'react-icons/fi';
 
 function ListSurgery({ surgeries, handleSelectedSurgery, getSurgeries, selected }) {
   const showSurgery = surgeries !== null && surgeries.length > 0;
+
+  function handleTypeSurgery(type) {
+    if (type === '0') {
+      return 'warning';
+    } else if (type === '1') {
+      return 'danger';
+    } else {
+      return 'primary';
+    }
+  }
+
   return (
     <SurgeriesList id='surgeryList' className={`${selected ? 'd-none d-md-flex' : 'd-flex'}`}>
       {showSurgery && (
@@ -30,7 +41,7 @@ function ListSurgery({ surgeries, handleSelectedSurgery, getSurgeries, selected 
                 >
                   <div className='d-flex w-100 px-xl-0 py-2'>
                     <div className='col-2 px-0 d-flex justify-content-center align-items-center'>
-                      <div className='icon blue d-flex align-items-center p-3' style={{ backgroundColor: '#2884FF' }}>
+                      <div className={`icon blue d-flex align-items-center p-3 bg-${handleTypeSurgery(surgery.type)}`}>
                         <FiActivity size='16' color='#FFF' />
                       </div>
                     </div>
@@ -41,17 +52,26 @@ function ListSurgery({ surgeries, handleSelectedSurgery, getSurgeries, selected 
                       </div>
                       <p className='mb-0'>Queda da escada</p>
                       {surgery.type === '0' && (
-                        <span className='badge badge-warning text-light' style={{ width: 'fit-content' }}>
+                        <span
+                          className={`text-light badge badge-${handleTypeSurgery(surgery.type)}`}
+                          style={{ width: 'fit-content' }}
+                        >
                           Urgencia
                         </span>
                       )}
                       {surgery.type === '1' && (
-                        <span className='badge badge-danger text-light' style={{ width: 'fit-content' }}>
+                        <span
+                          className={`text-light badge badge-${handleTypeSurgery(surgery.type)}`}
+                          style={{ width: 'fit-content' }}
+                        >
                           Emergencia
                         </span>
                       )}
                       {surgery.type === '2' && (
-                        <span className='badge badge-primary text-light' style={{ width: 'fit-content' }}>
+                        <span
+                          className={`text-light badge badge-${handleTypeSurgery(surgery.type)}`}
+                          style={{ width: 'fit-content' }}
+                        >
                           Eletiva
                         </span>
                       )}
