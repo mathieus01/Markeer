@@ -122,9 +122,9 @@ const DetailPatient = ({
           </div>
         </div>
       </PageTitle>
-      <div className='d-flex' style={{ height: '90.5%' }}>
+      <div className='d-flex flex-column flex-md-row' style={{ height: '90.5%' }}>
         {patient && (
-          <div className='col-lg-4 col-md-6 pr-md-3 pl-0' style={{ maxHeight: '100%' }}>
+          <div className='col-lg-4 col-md-6 pr-0 pr-md-3 pl-0' style={{ maxHeight: '100%' }}>
             <div className='card mx-2 mx-md-0 mt-2 mt-md-0'>
               <PatientCard
                 patient={patient}
@@ -163,7 +163,7 @@ const DetailPatient = ({
           </div>
         )}
         <div
-          className={`h-100 col-lg-8 col-md-6 col-12 border-left d-none d-md-block ${
+          className={`h-100 col-lg-8 col-md-6 col-12 px-0 px-md-3 border-left d-none d-md-block ${
             !selected ? 'd-none d-md-flex' : 'd-flex'
           }`}
         >
