@@ -11,11 +11,10 @@ export const SelectCustomize = styled.select`
   color: #8492a6;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #fdfdfe !important;
+  border: none !important;
   border-left: 2px solid var(--primary-color) !important;
+  border-bottom: 1px solid #f0f0f4 !important;
   border-radius: 2px;
-  -webkit-box-shadow: var(--box-shadow3);
-  box-shadow: var(--box-shadow3);
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 
@@ -24,8 +23,6 @@ export const SelectCustomize = styled.select`
     background-color: #fff;
     border-color: #05aaff;
     outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(31, 45, 61, 0.075), 0 0 20px rgba(5, 170, 255, 0.1);
-    box-shadow: inset 0 1px 1px rgba(31, 45, 61, 0.075), 0 0 20px rgba(5, 170, 255, 0.1);
   }
 `;
 

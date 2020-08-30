@@ -6,9 +6,9 @@ import { Creators as PatientActions } from '../../../store/ducks/patient';
 import { Creators as SurgeryActions } from '../../../store/ducks/surgery';
 import Modal from 'react-modal';
 import Swal from 'sweetalert2';
-import { Container, ListSurgeryTitle } from './styles';
+import { Container, ListSurgeryTitle, PageTitle } from './styles';
 import util from '../../../utils/util';
-import { FiPlus } from 'react-icons/fi';
+import { FiPlus, FiMenu } from 'react-icons/fi';
 import Loading from '../../../components/Loading';
 import PatientCard from '../../../components/PatientCard';
 import ListSurgery from '../../../components/ListSurgery';
@@ -41,7 +41,7 @@ const DetailPatient = ({
   useEffect(() => {
     if (patient && patient.id) {
       setPage(page + 1);
-      getSurgeriesRequest({ patient: patientState.patient.id, page: page + 1 });
+      getSurgeriesRequest({ patient: patient.id, page: page + 1 });
     }
   }, [patient]);
 
@@ -108,17 +108,23 @@ const DetailPatient = ({
   };
 
   return (
-    <Container className='container-fluid pb-xl-0 pt-xl-4 px-xl-5 py-lg-3 px-xl-4 px-md-3 py-md-3 p-0'>
-      <div class='page-title '>
-        <div class='row justify-content-between align-items-center'>
-          <div class='col-md-6 col-12 mb-1 mb-md-0 px-4 px-md-3'>
+    <Container className='container-fluid pb-xl-0 px-xl-5 px-xl-4 px-md-3 p-0'>
+      <PageTitle className='mx-2 mx-md-0 pb-0 pb-md-4'>
+        <div class='d-flex justify-content-between align-items-center'>
+          <div class='d-flex align-items-center justify-content-between col-12 mb-1 mb-md-0 px-0'>
             <h5 class='h3 font-weight-600 mb-0 '>Detalhar Paciente</h5>
+            <button
+              className='button pt-3 px-3 mr-1 d-xl-none side-menu text-primary'
+              onClick={(e) => util.toogleSidebar(e)}
+            >
+              <FiMenu size='22' />
+            </button>
           </div>
         </div>
-      </div>
-      <div className='row pt-2 pt-md-3 ' style={{ height: '95%' }}>
+      </PageTitle>
+      <div className='d-flex' style={{ height: '90.5%' }}>
         {patient && (
-          <div className='col-lg-4 col-md-6' style={{ maxHeight: '100%' }}>
+          <div className='col-lg-4 col-md-6 pr-md-3 pl-0' style={{ maxHeight: '100%' }}>
             <div className='card mx-2 mx-md-0 mt-2 mt-md-0'>
               <PatientCard
                 patient={patient}
@@ -132,7 +138,7 @@ const DetailPatient = ({
             </div>
             <div
               className={`card mt-2 mt-md-3 mx-2 mx-md-0 ${selected ? 'd-none d-md-flex' : 'd-flex'}`}
-              style={{ height: '60%' }}
+              style={{ height: '56%' }}
             >
               <ListSurgeryTitle className='pb-3'>
                 <h6 className='mb-0'>Cirurgias</h6>
@@ -140,7 +146,7 @@ const DetailPatient = ({
               <section className={`mt-2 py-2 align-items-center ${selected ? 'd-none d-md-flex' : 'd-flex'}`}>
                 <input type='text' placeholder='Pesquisar...' className='surgery-search mr-3' />
                 <button
-                  className='button rounded-circle p-2 my-1 primary-button'
+                  className='rounded-circle p-2 my-1 btn btn-sm btn-primary'
                   onClick={(e) => handleOpenModalSurgery(true)}
                 >
                   <FiPlus size={18} color='#FFF' />
@@ -157,7 +163,7 @@ const DetailPatient = ({
           </div>
         )}
         <div
-          className={`h-100 col-lg-8 col-md-6 col-12 px-0 d-none d-md-block ${
+          className={`h-100 col-lg-8 col-md-6 col-12 border-left d-none d-md-block ${
             !selected ? 'd-none d-md-flex' : 'd-flex'
           }`}
         >

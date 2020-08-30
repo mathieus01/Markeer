@@ -6,7 +6,6 @@ import { List, Item, Avatar, Section } from './styles';
 import util from '../../utils/util';
 
 function ListPatients({ patients, selectPatient, getPatients }) {
-  const avatarPath = '../../../public/avatars';
   return (
     <List id='patientList'>
       <InfiniteScroll
@@ -18,8 +17,8 @@ function ListPatients({ patients, selectPatient, getPatients }) {
       >
         {patients &&
           patients.map((patient) => (
-            <Item key={patient.id} className='d-flex mb-0' onClick={(e) => selectPatient(patient)}>
-              <div className='d-flex w-100 px-xl-0 py-2'>
+            <Item key={patient.id} className='d-flex mb-0 py-2' onClick={(e) => selectPatient(patient)}>
+              <div className='d-flex w-100 px-xl-0'>
                 <div className='col-2 px-0 d-flex justify-content-center align-items-center'>
                   <Avatar
                     src={util.getAvatars(
@@ -31,11 +30,11 @@ function ListPatients({ patients, selectPatient, getPatients }) {
                   />
                 </div>
                 <Section className='col-10 d-flex flex-column px-0'>
-                  <div className='d-flex justify-content-between'>
+                  <div className='d-flex justify-content-between align-items-center'>
                     <strong>{patient.name}</strong>
                     <small>{moment(patient.birthday).format('DD MMM, YYYY')}</small>
                   </div>
-                  <div className='d-flex justify-content-between'>
+                  <div className='d-flex justify-content-between align-items-center'>
                     <p className='mb-0'>{patient.email}</p>
                     <div class='dropdown'>
                       <button

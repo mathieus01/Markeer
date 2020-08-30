@@ -9,8 +9,9 @@ import DetailPatient from '../../../components/DetailPatient';
 import CreatePatient from '../../../components/CreatePatient';
 import Loading from '../../../components/Loading';
 import Swal from 'sweetalert2';
-import { FiPlus } from 'react-icons/fi';
-import { Container, ListPatientTitle } from './styles';
+import { FiPlus, FiMenu } from 'react-icons/fi';
+import util from '../../../utils/util';
+import { Container, ListPatientTitle, PageTitle } from './styles';
 
 const ListPatients = ({ patientState, getPatientsRequest, removePatientRequest, history, ...rest }) => {
   const [page, setPage] = useState(0);
@@ -74,22 +75,30 @@ const ListPatients = ({ patientState, getPatientsRequest, removePatientRequest, 
   };
 
   return (
-    <Container className='container-fluid h-100 pb-xl-0 pt-xl-4 px-xl-5 py-lg-3 px-xl-4 px-md-3 py-md-3 p-0 overflow-hidden'>
-      <div class='page-title '>
-        <div class='row justify-content-between align-items-center'>
-          <div class='col-md-6 col-12 mb-1 mb-md-0 px-4 px-md-3'>
-            <h5 class='h3 font-weight-600 mb-0 '>Pacientes</h5>
-            <div class='align-items-center d-inline-flex'>
-              <span class='h4 text-primary mb-0 mr-2'>{patientState.total}</span>
-              <span class='text-sm opacity-8 '>Pacientes</span>
+    <Container className='container-fluid h-100 pb-xl-0  px-xl-5 px-xl-4 px-md-3 p-0 overflow-hidden'>
+      <PageTitle className='mx-2 mx-md-0 pb-0 pb-md-4'>
+        <div class='d-flex justify-content-between align-items-center'>
+          <div class='d-flex align-items-center justify-content-between col-12 mb-1 mb-md-0 px-0'>
+            <div>
+              <h5 class='h3 font-weight-600 mb-0 '>Listar Pacientes</h5>
+              <div class='align-items-center d-inline-flex'>
+                <span class='h4 text-primary mb-0 mr-2'>{patientState.total}</span>
+                <span class='text-sm opacity-8 '>Pacientes</span>
+              </div>
             </div>
+            <button
+              className='button pt-3 px-3 mr-1 d-xl-none side-menu text-primary'
+              onClick={(e) => util.toogleSidebar(e)}
+            >
+              <FiMenu size='22' />
+            </button>
           </div>
         </div>
-      </div>
-      <div className='row h-100 pt-2'>
+      </PageTitle>
+      <div className='row h-100'>
         <div className='col-xl-4 col-lg-5 col-md-6 h-90'>
           <div className='card h-100 mx-2 mx-md-0 mt-2 mt-md-0'>
-            <ListPatientTitle className='pb-3 mb-2 d-flex w-100 justify-content-between'>
+            <ListPatientTitle className='pb-2 mb-2 d-flex w-100 justify-content-between'>
               <h6 className='mb-0'>Pacientes</h6>
 
               <button
@@ -104,7 +113,7 @@ const ListPatients = ({ patientState, getPatientsRequest, removePatientRequest, 
             <ListComponent patients={patients} selectPatient={selectPatient} getPatients={getPatients} />
           </div>
         </div>
-        <div className='col-xl-8 col-lg-7 col-md-6 pl-xl-4 pl-md-2 d-none d-md-block h-90'>
+        <div className='col-xl-8 col-lg-7 col-md-6 border-left d-none d-md-block h-90'>
           {selectedPatient && (
             <DetailPatient
               selectedPatient={selectedPatient}

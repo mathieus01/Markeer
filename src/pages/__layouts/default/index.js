@@ -6,9 +6,8 @@ import { Container, Content } from './styles';
 function DefaultLayout({ children, props, ...rest }) {
   return (
     <Container>
-      <Sidebar props={props} />
       <Content>
-        <Header />
+        <Sidebar props={props} />
         {children}
       </Content>
     </Container>

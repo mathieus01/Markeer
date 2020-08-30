@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const List = styled.ul`
   height: 100%;
-  max-height: 74vh;
+  max-height: 80vh;
   overflow: auto;
   margin-bottom: 0;
 
@@ -46,25 +46,21 @@ export const Avatar = styled.img`
 
 export const Section = styled.div`
   strong {
+    font: normal 600 0.875rem/1rem var(--roboto);
     color: var(--title-color);
-    font-size: 1rem;
-    font-weight: 600;
   }
   small {
+    font: normal 400 0.8125rem/0.8125rem var(--roboto);
     color: var(--text-color);
-    font-size: 0.875rem;
-    font-weight: 400;
   }
   p {
+    font: normal 400 0.8125rem/0.8125rem var(--roboto);
     color: var(--text-color);
-    font-size: 0.875rem;
-    font-weight: 400;
   }
   span {
-    max-width: 30vw;
+    font: normal 400 0.8125rem/0.875rem var(--roboto);
     color: var(--text-color);
-    font-weight: 400;
-    font-size: 0.875rem;
+    max-width: 30vw;
     position: relative;
     flex-grow: 1;
     overflow: hidden;

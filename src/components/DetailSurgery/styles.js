@@ -39,16 +39,16 @@ export const SurgeryHeader = styled.div`
 export const SurgeryInfo = styled.div`
   min-height: fit-content;
   strong {
-    font: normal 600 16px/18px var(--roboto);
+    font: normal 600 0.875rem/1rem var(--roboto);
     text-transform: capitalize;
     color: var(--title-color);
   }
   span {
-    font: normal 500 14px/16px var(--roboto);
+    font: normal 400 0.8125rem/0.8125rem var(--roboto);
     color: var(--text-color);
   }
   small {
-    font: normal 400 13px/14px var(--roboto);
+    font: normal 400 0.8125rem/0.8125rem var(--roboto);
     color: var(--text-color);
   }
 `;

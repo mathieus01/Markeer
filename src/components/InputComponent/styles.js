@@ -11,11 +11,10 @@ export const Input = styled.input`
   color: #8492a6;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #fdfdfe !important;
+  border: none !important;
   border-left: 2px solid var(--primary-color) !important;
+  border-bottom: 1px solid #f0f0f4 !important;
   border-radius: 2px;
-  -webkit-box-shadow: var(--box-shadow3);
-  box-shadow: var(--box-shadow3);
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
   margin-bottom: -5px;

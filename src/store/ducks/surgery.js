@@ -17,8 +17,8 @@ const INITIAL_STATE = {
   total: '0',
   surgery: null,
   surgeries: [],
-  page: 1,
-  lastPage: 1,
+  page: 0,
+  lastPage: 0,
   loading: false,
 };
 
@@ -63,14 +63,13 @@ export default function surgery(state = INITIAL_STATE, action) {
     case Types.SET_ERROR:
       return { ...state, loading: false };
     case Types.RESET_SURGERY_PAGE:
-      console.log('resetado');
       return {
         ...state,
         total: '0',
         surgery: null,
         surgeries: [],
-        page: 1,
-        lastPage: 1,
+        page: 0,
+        lastPage: 0,
       };
     default:
       return state;

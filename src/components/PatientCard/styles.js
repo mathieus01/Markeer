@@ -35,13 +35,24 @@ export const PatientType = styled.div`
 
 export const PatientSection = styled.div`
   span {
-    font: normal 400 15px/16px var(--roboto);
+    font: normal 400 0.875rem/1rem var(--roboto);
     color: var(--text-color);
     position: relative;
     flex-grow: 1;
     overflow: hidden;
+    width: fit-content;
     white-space: nowrap;
     text-overflow: ellipsis;
     max-width: 90%;
+  }
+
+  strong {
+    font: normal 600 0.875rem/1rem var(--roboto);
+    color: var(--title-color);
+  }
+
+  h5 {
+    font: normal 600 1.25rem/1.25rem var(--roboto);
+    color: var(--title-color);
   }
 `;

@@ -17,8 +17,8 @@ import {
 
 function PatientCard({ avatar, patient, surgeries, handleEditPatient, navigateDetailPage }) {
   return (
-    <Container className='d-flex flex-column align-items-center pb-2 '>
-      <Title className='pb-3 d-flex w-100 justify-content-between'>
+    <Container className='d-flex flex-column align-items-center'>
+      <Title className='pb-2 d-flex w-100 justify-content-between'>
         <div className='d-flex align-items-center'>
           <Link
             to='/patients'
@@ -61,7 +61,7 @@ function PatientCard({ avatar, patient, surgeries, handleEditPatient, navigateDe
         </button>
         
       </PatientButtons> */}
-      <PatientInfo className='d-flex flex-row align-items-center w-100 mt-3'>
+      <PatientInfo className='d-flex flex-row align-items-center w-100 mt-2'>
         <div className='col-3 px-0'>
           <PatientAvatar
             src={avatar}
@@ -87,56 +87,45 @@ function PatientCard({ avatar, patient, surgeries, handleEditPatient, navigateDe
         </div>
       </PatientInfo>
       <PatientSection className='d-flex flex-column w-100'>
-        <strong className='mb-0 mt-2'>{patient.name}</strong>
-        <div className='d-flex align-items-center px-0 my-1'>
+        <h5 className='mb-0 mt-2'>{patient.name}</h5>
+        <div className='w-100 px-0 '>
           <FiBriefcase size={18} className='mr-2' />
-          <span>
-            Trabalha como{' '}
-            <strong className='text-title-color'>{patient.occupation ? patient.occupation : 'Não informado'}</strong>
-          </span>
+          <span>Trabalha como </span>
+          <strong className='text-title-color'>{patient.occupation ? patient.occupation : 'Não informado'}</strong>
         </div>
-        <div className='d-flex align-items-center px-0 mb-1'>
+        <div className='w-100 px-0 '>
           <FiPhoneCall size={18} className='mr-2' />
-          <span>
-            Contato <strong className='text-title-color'>{patient.phone ? patient.phone : 'Não informado'}</strong>
-          </span>
+          <span>Contato </span>
+          <strong className='text-title-color'>{patient.phone ? patient.phone : 'Não informado'}</strong>
         </div>
-        <div className='d-flex align-items-center px-0 mb-1'>
+        <div className='w-100 px-0 '>
           <FiMail size={18} className='mr-2' />
-          <span>
-            Email <strong className='text-title-color'>{patient.email ? patient.email : 'Não informado'}</strong>
-          </span>
+          <span>Email </span>
+          <strong className='text-title-color'>{patient.email ? patient.email : 'Não informado'}</strong>
         </div>
-        <div className='d-flex align-items-center px-0 mb-1'>
+        <div className='w-100 px-0 '>
           <FiMapPin size={18} className='mr-2' />
-          <span>
-            Mora em <strong className='text-title-color'>{patient.address ? patient.address : 'Não informado'}</strong>
-          </span>
+          <span>Mora em </span>
+          <strong className='text-title-color'>{patient.address ? patient.address : 'Não informado'}</strong>
         </div>
-        <div className='d-flex align-items-center px-0 mb-1'>
+        <div className='w-100 px-0 '>
           <FiHeart size={18} className='mr-2' />
-          <span>
-            Plano de saude{' '}
-            <strong className='text-title-color'>{patient.helthcare ? patient.helthcare : 'Não informado'}</strong>
-          </span>
+          <span>Plano de saude </span>
+          <strong className='text-title-color'>{patient.helthcare ? patient.helthcare : 'Não informado'}</strong>
         </div>
-        <div className='d-flex align-items-center px-0 mb-1'>
+        <div className='w-100 px-0 '>
           <FiSunrise size={18} className='mr-2' />
-          <span>
-            Possui
-            <strong className='text-title-color'>
-              {patient.birthday
-                ? ` ${moment(new Date()).diff(moment(patient.birthday), 'year')} Anos`
-                : ' Idade Não informada'}
-            </strong>
-          </span>
+          <span>Possui </span>
+          <strong className='text-title-color'>
+            {patient.birthday
+              ? ` ${moment(new Date()).diff(moment(patient.birthday), 'year')} Anos`
+              : ' Idade Não informada'}
+          </strong>
         </div>
-        <div className='d-flex align-items-center px-0 mb-1'>
+        <div className='w-100 px-0 '>
           <FiMeh size={18} className='mr-2' />
-          <span>
-            Alergias
-            <strong className='text-title-color'> {patient.alergy ? patient.alergy : 'Não Informada'}</strong>
-          </span>
+          <span>Alergias</span>
+          <strong className='text-title-color'> {patient.alergy ? patient.alergy : 'Não Informada'}</strong>
         </div>
       </PatientSection>
     </Container>

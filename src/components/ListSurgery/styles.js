@@ -38,23 +38,19 @@ export const SurgeryItem = styled.li`
     border-bottom: 0px;
   }
   strong {
+    font: normal 600 0.875rem/1rem var(--roboto);
     color: var(--title-color);
-    font-size: 16px;
-    font-weight: 600;
   }
   small {
+    font: normal 400 0.8125rem/0.8125rem var(--roboto);
     color: var(--text-color);
-    font-size: 14px;
-    font-weight: 400;
   }
   p {
+    font: normal 400 0.8125rem/0.8125rem var(--roboto);
     color: var(--text-color);
-    font-size: 14px;
-    font-weight: 400;
   }
   span {
+    font: normal 400 0.8125rem/0.8125rem var(--roboto);
     color: var(--text-color);
-    font-size: 14px;
-    font-weight: 400;
   }
 `;

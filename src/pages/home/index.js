@@ -10,10 +10,12 @@ import {
   FaBrain,
   FaCut,
 } from 'react-icons/fa';
+import { FiMenu } from 'react-icons/fi';
 import { getToken } from '../../services/auth';
 import jwtDecode from 'jwt-decode';
-import { Container } from './styles';
+import { Container, PageTitle } from './styles';
 import { Chart } from 'react-google-charts';
+import util from '../../utils/util';
 
 function Home() {
   const [username, setUsername] = useState(null);
@@ -29,18 +31,28 @@ function Home() {
   }, []);
 
   return (
-    <Container className='container-fluid pb-xl-0 pt-xl-4 px-xl-5 py-lg-3 px-xl-4 px-md-3 py-md-3 p-0'>
-      <div class='page-title '>
-        <div class='row justify-content-between align-items-center'>
-          <div class='col-md-6 col-12 mb-1 mb-md-0 px-4 px-md-3'>
-            <h5 class='h3 font-weight-600 mb-0 '>
-              Ola, <span className='text-primary'>{username}</span>{' '}
-            </h5>
-            <span class='text-sm opacity-8'>Tenha um bom dia!</span>
+    <Container className='container-fluid pb-xl-0  px-xl-5 px-xl-4 px-md-3 p-0'>
+      <PageTitle className='mx-2 mx-md-0 pb-0 pb-md-4'>
+        <div class='d-flex justify-content-between align-items-center'>
+          <div class='d-flex align-items-center justify-content-between col-12 mb-1 mb-md-0 px-0'>
+            <div>
+              <h5 class='h3 font-weight-600 mb-0 '>
+                Ola, <span className='text-primary'>{username}</span>{' '}
+              </h5>
+              <div class='align-items-center d-inline-flex'>
+                <span class='text-sm opacity-8'>Tenha um bom dia!</span>
+              </div>
+            </div>
+            <button
+              className='button pt-3 px-3 mr-1 d-xl-none side-menu text-primary'
+              onClick={(e) => util.toogleSidebar(e)}
+            >
+              <FiMenu size='22' />
+            </button>
           </div>
         </div>
-      </div>
-      <div className='row pt-2 pt-md-3'>
+      </PageTitle>
+      <div className='row'>
         <div className='col-xl-3 col-md-6 col-sm-12 '>
           <div className='card d-flex flex-row  justify-content-between card-info py-1 px-4 mb-lg-4 mb-md-3 mb-3'>
             <div className='card-detail d-flex flex-row align-items-center justify-content-between py-3'>

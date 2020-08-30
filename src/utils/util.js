@@ -71,4 +71,10 @@ export default class Util {
       return female[number];
     }
   }
+
+  static toogleSidebar = (e) => {
+    e.preventDefault();
+    var nav = document.querySelector('#sidebar');
+    nav.classList.toggle('d-flex');
+  };
 }
